@@ -9,34 +9,32 @@ const audiences = [
 ];
 
 const PartnershipsPage = () => (
-  <div className="pt-20 md:pt-24">
-    {/* Hero */}
-    <section className="py-16 md:py-28 bg-secondary">
-      <div className="container-narrow section-padding text-center">
-        <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4 block">Partnerships</span>
-        <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-6">
+  <div className="pt-28 md:pt-32">
+    <section className="pb-14 md:pb-20 bg-secondary">
+      <div className="container-narrow section-padding text-center pt-10 md:pt-14">
+        <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-3 block">Partnerships</span>
+        <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground leading-[1.12] mb-4">
           Let's improve patient experience—together.
         </h1>
-        <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl mx-auto mb-8">
           We partner with healthcare organizations, pharmacies, retailers, and corporate wellness programs to bring dignity, organization, and discretion to patient care.
         </p>
-        <Button variant="hero" size="xl">Partner With Us</Button>
+        <Button variant="hero" size="lg">Partner With Us</Button>
       </div>
     </section>
 
-    {/* Audiences */}
-    <section className="py-16 md:py-24">
+    <section className="py-14 md:py-20 bg-background">
       <div className="container-wide section-padding">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-center mb-12">Who We Partner With</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-center mb-10">Who We Partner With</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {audiences.map((a) => (
-            <div key={a.title} className="flex gap-5 p-8 rounded-lg bg-card border border-border">
-              <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                <a.icon className="h-7 w-7 text-accent" />
+            <div key={a.title} className="flex gap-4 p-6 rounded-xl bg-card border border-border">
+              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                <a.icon className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <h3 className="font-serif text-xl font-semibold mb-2">{a.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{a.desc}</p>
+                <h3 className="font-serif text-lg font-semibold mb-1">{a.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
               </div>
             </div>
           ))}
@@ -44,18 +42,17 @@ const PartnershipsPage = () => (
       </div>
     </section>
 
-    {/* Value Props */}
-    <section className="py-16 md:py-24 bg-secondary">
+    <section className="py-14 md:py-20 bg-secondary">
       <div className="container-wide section-padding">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-center mb-12">Why Partner With Stealth Bros & Co.</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-center mb-10">Why Partner With Stealth Bros & Co.</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
             { title: "Improve Adherence", desc: "Organized care routines lead to better medication adherence and patient outcomes." },
             { title: "Support Dignity", desc: "Our products remove stigma and give patients privacy in managing their health." },
             { title: "Proven Brand", desc: "As seen on Shark Tank and available at CVS. Trusted by 50K+ customers." },
           ].map((v) => (
-            <div key={v.title} className="p-8 rounded-lg bg-card border border-border text-center">
-              <h3 className="font-serif text-lg font-semibold mb-3">{v.title}</h3>
+            <div key={v.title} className="p-6 rounded-xl bg-card border border-border text-center">
+              <h3 className="font-serif text-base font-semibold mb-2">{v.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
             </div>
           ))}
@@ -63,18 +60,17 @@ const PartnershipsPage = () => (
       </div>
     </section>
 
-    {/* Contact Form */}
-    <section className="py-16 md:py-24">
+    <section className="py-14 md:py-20 bg-background">
       <div className="container-narrow section-padding">
-        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-center mb-10">Get in Touch</h2>
-        <div className="max-w-lg mx-auto space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <input placeholder="First Name" className="w-full bg-card border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-accent" />
-            <input placeholder="Last Name" className="w-full bg-card border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-accent" />
+        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-center mb-8">Get in Touch</h2>
+        <div className="max-w-lg mx-auto space-y-3">
+          <div className="grid grid-cols-2 gap-3">
+            <input placeholder="First Name" className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors" />
+            <input placeholder="Last Name" className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors" />
           </div>
-          <input placeholder="Company" className="w-full bg-card border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-accent" />
-          <input placeholder="Email" type="email" className="w-full bg-card border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-accent" />
-          <select className="w-full bg-card border border-border rounded-md px-4 py-3 text-sm text-muted-foreground focus:outline-none focus:border-accent">
+          <input placeholder="Company" className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors" />
+          <input placeholder="Email" type="email" className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors" />
+          <select className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm text-muted-foreground focus:outline-none focus:border-accent transition-colors">
             <option>Partnership Type</option>
             <option>Healthcare System</option>
             <option>Pharmacy / Retail</option>
@@ -82,7 +78,7 @@ const PartnershipsPage = () => (
             <option>Nonprofit / Advocacy</option>
             <option>Other</option>
           </select>
-          <textarea placeholder="Tell us about your partnership interest..." rows={4} className="w-full bg-card border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-accent resize-none" />
+          <textarea placeholder="Tell us about your partnership interest..." rows={4} className="w-full bg-card border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent resize-none transition-colors" />
           <Button variant="hero" size="lg" className="w-full">Submit Inquiry</Button>
         </div>
       </div>
