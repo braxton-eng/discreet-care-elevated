@@ -11,9 +11,9 @@ const resources = [
 ];
 
 const ResourcesPage = () => (
-  <div className="pt-20 md:pt-24">
-    <section className="py-16 md:py-24 bg-secondary">
-      <div className="container-wide section-padding">
+  <div className="pt-28 md:pt-32">
+    <section className="pb-10 md:pb-14">
+      <div className="container-wide section-padding pt-4 md:pt-6">
         <SectionHeader
           eyebrow="Resources"
           title="Education & Care Guides"
@@ -22,18 +22,18 @@ const ResourcesPage = () => (
       </div>
     </section>
 
-    <section className="py-16 md:py-24">
+    <section className="pb-16 md:pb-24">
       <div className="container-wide section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {resources.map((r) => (
-            <div key={r.title} className="p-6 rounded-lg bg-card border border-border hover:border-accent/50 transition-colors cursor-pointer group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                  <r.icon className="h-5 w-5 text-accent" />
+            <div key={r.title} className="p-5 rounded-xl bg-card border border-border hover:border-accent/30 transition-colors cursor-pointer group">
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center">
+                  <r.icon className="h-4 w-4 text-accent" />
                 </div>
-                <span className="text-xs font-sans font-semibold uppercase tracking-wider text-accent">{r.type}</span>
+                <span className="text-[10px] font-sans font-semibold uppercase tracking-wider text-accent">{r.type}</span>
               </div>
-              <h3 className="font-serif text-lg font-semibold mb-2 group-hover:text-accent transition-colors">{r.title}</h3>
+              <h3 className="font-serif text-base font-semibold mb-1.5 group-hover:text-accent transition-colors">{r.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
             </div>
           ))}
