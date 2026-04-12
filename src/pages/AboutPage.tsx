@@ -45,7 +45,7 @@ const AboutPage = () => (
             { title: "Discretion is a feature", desc: "Your routine is your business. Our products are designed so no one needs to know what's inside." },
             { title: "Organization creates confidence", desc: "When your routine is organized, you show up differently. That's by design." },
             { title: "Care should fit real life", desc: "We're not a medical supply company. We're a lifestyle brand for people who take care of themselves." },
-            { title: "Built for underserved communities", desc: "The people we serve—across health, wellness, and personal care—have been overlooked for too long. We see you." },
+            { title: "Built for underserved communities", desc: "The people we serve across health, wellness, and personal care have been overlooked for too long. We see you." },
           ].map((v) => (
             <div key={v.title} className="p-5 rounded-xl bg-card border border-border">
               <h3 className="font-serif text-base font-semibold mb-2">{v.title}</h3>
@@ -61,7 +61,7 @@ const AboutPage = () => (
       <div className="container-wide section-padding">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
-            { stat: "50K+", label: "Customers Served" },
+            { stat: "30K+", label: "Customers Served" },
             { stat: "4.9★", label: "Average Rating" },
             { stat: "NGLCC", label: "Certified Business" },
             { stat: "Shark Tank", label: "Featured On" },
