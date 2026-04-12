@@ -17,16 +17,16 @@ const AboutPage = () => (
             </h1>
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                Stealth Bros & Co. was founded by Braxton Fleming after his own experience managing hormone replacement therapy revealed a gap no one was addressing: the moment between picking up your prescription and actually using it.
+                Stealth Bros & Co. was founded by Braxton Fleming after his own experience managing hormone replacement therapy revealed a gap no one was addressing: the moment between picking up your prescription—or your supplements, or your wellness essentials—and actually using them.
               </p>
               <p>
-                There were no discreet, well-designed storage solutions for people managing daily care routines. Just plastic bags, shoeboxes, and a lot of anxiety about being seen. Braxton knew there had to be a better way.
+                There were no discreet, well-designed storage solutions for people managing daily personal care routines. Just plastic bags, shoeboxes, and a lot of anxiety about being seen. Braxton knew there had to be a better way.
               </p>
               <p>
-                What started as a personal solution quickly became a mission. After appearing on <strong>Shark Tank</strong> and securing a partnership with <strong>CVS</strong>, Stealth Bros & Co. has grown into a movement—serving HRT, IVF, diabetes, GLP-1, and chronic care communities with products that bring privacy, organization, and dignity to healthcare.
+                What started as a personal solution quickly became a mission. After appearing on <strong>Shark Tank</strong> and securing a partnership with <strong>CVS</strong>, Stealth Bros & Co. has grown into a movement—serving HRT, IVF, diabetes, GLP-1, supplement, and wellness communities with products that bring privacy, organization, and dignity to every personal care routine.
               </p>
               <p className="font-serif text-foreground text-lg italic">
-                "Care doesn't stop at the pharmacy—we support what happens next."
+                "Your routine is your business—we just make it easier to manage."
               </p>
             </div>
           </div>
@@ -43,10 +43,10 @@ const AboutPage = () => (
         <h2 className="font-serif text-3xl md:text-4xl font-semibold text-center mb-12">What We Believe</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: "Discretion is a feature", desc: "Your health is your business. Our products are designed so no one needs to know." },
+            { title: "Discretion is a feature", desc: "Your routine is your business. Our products are designed so no one needs to know what's inside." },
             { title: "Organization creates confidence", desc: "When your routine is organized, you show up differently. That's by design." },
-            { title: "Healthcare should fit real life", desc: "We're not a medical supply company. We're a lifestyle brand for people who manage their health." },
-            { title: "Built for underserved communities", desc: "The people we serve have been overlooked for too long. We see you." },
+            { title: "Care should fit real life", desc: "We're not a medical supply company. We're a lifestyle brand for people who take care of themselves." },
+            { title: "Built for underserved communities", desc: "The people we serve—across health, wellness, and personal care—have been overlooked for too long. We see you." },
           ].map((v) => (
             <div key={v.title} className="p-6 rounded-lg bg-card border border-border">
               <h3 className="font-serif text-lg font-semibold mb-3">{v.title}</h3>
