@@ -1,0 +1,96 @@
+import { Button } from "@/components/ui/button";
+import founderImg from "@/assets/founder-braxton.jpg";
+import heroImg from "@/assets/hero-product.jpg";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const AboutPage = () => (
+  <div className="pt-20 md:pt-24">
+    {/* Hero */}
+    <section className="py-16 md:py-28">
+      <div className="container-wide section-padding">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4 block">Our Story</span>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-6">
+              Built from lived experience.
+            </h1>
+            <div className="space-y-5 text-muted-foreground leading-relaxed">
+              <p>
+                Stealth Bros & Co. was founded by Braxton Fleming after his own experience managing hormone replacement therapy revealed a gap no one was addressing: the moment between picking up your prescription and actually using it.
+              </p>
+              <p>
+                There were no discreet, well-designed storage solutions for people managing daily care routines. Just plastic bags, shoeboxes, and a lot of anxiety about being seen. Braxton knew there had to be a better way.
+              </p>
+              <p>
+                What started as a personal solution quickly became a mission. After appearing on <strong>Shark Tank</strong> and securing a partnership with <strong>CVS</strong>, Stealth Bros & Co. has grown into a movement—serving HRT, IVF, diabetes, GLP-1, and chronic care communities with products that bring privacy, organization, and dignity to healthcare.
+              </p>
+              <p className="font-serif text-foreground text-lg italic">
+                "Care doesn't stop at the pharmacy—we support what happens next."
+              </p>
+            </div>
+          </div>
+          <div className="aspect-[3/4] rounded-lg overflow-hidden">
+            <img src={founderImg} alt="Braxton Fleming, Founder" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Values */}
+    <section className="py-16 md:py-24 bg-secondary">
+      <div className="container-wide section-padding">
+        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-center mb-12">What We Believe</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { title: "Discretion is a feature", desc: "Your health is your business. Our products are designed so no one needs to know." },
+            { title: "Organization creates confidence", desc: "When your routine is organized, you show up differently. That's by design." },
+            { title: "Healthcare should fit real life", desc: "We're not a medical supply company. We're a lifestyle brand for people who manage their health." },
+            { title: "Built for underserved communities", desc: "The people we serve have been overlooked for too long. We see you." },
+          ].map((v) => (
+            <div key={v.title} className="p-6 rounded-lg bg-card border border-border">
+              <h3 className="font-serif text-lg font-semibold mb-3">{v.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Impact */}
+    <section className="py-16 md:py-24">
+      <div className="container-wide section-padding">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { stat: "50K+", label: "Customers Served" },
+            { stat: "4.9★", label: "Average Rating" },
+            { stat: "CVS", label: "Retail Partner" },
+            { stat: "Shark Tank", label: "Featured On" },
+          ].map((s) => (
+            <div key={s.label}>
+              <p className="font-serif text-3xl md:text-4xl font-bold text-accent">{s.stat}</p>
+              <p className="text-sm text-muted-foreground mt-2">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section className="py-16 md:py-24 bg-primary">
+      <div className="container-narrow section-padding text-center">
+        <h2 className="font-serif text-3xl md:text-4xl font-semibold text-primary-foreground mb-4">
+          Join the movement.
+        </h2>
+        <p className="text-primary-foreground/70 mb-8 max-w-md mx-auto">
+          Discover products designed with intention, for people managing care with courage.
+        </p>
+        <Button asChild variant="hero" size="xl">
+          <Link to="/shop">Shop Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
+        </Button>
+      </div>
+    </section>
+  </div>
+);
+
+export default AboutPage;
