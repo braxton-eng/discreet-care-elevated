@@ -179,7 +179,7 @@ const HomePage = () => (
     <section className="py-16 md:py-24 bg-secondary">
       <div className="container-wide section-padding">
         <div className="flex justify-center gap-10 md:gap-16 mb-14 flex-wrap">
-          {["Shark Tank", "CVS", "Forbes", "GMA"].map((brand) => (
+          {["Shark Tank", "CVS", "Stanford University", "Cleveland Clinic"].map((brand) => (
             <span key={brand} className="font-serif text-lg md:text-xl text-muted-foreground/30 font-semibold">{brand}</span>
           ))}
         </div>
