@@ -20,6 +20,7 @@ const Footer = () => (
               { label: "Sharps Disposal", path: "/shop/sharps-disposal" },
               { label: "Bundles", path: "/shop/bundles" },
               { label: "Duffles & Backpacks", path: "/shop/duffles-backpacks" },
+              { label: "Stealth Ascend", path: "/ascend" },
             ].map((item) => (
               <Link key={item.label} to={item.path} className="block text-sm text-primary-foreground/50 hover:text-accent transition-colors">
                 {item.label}
