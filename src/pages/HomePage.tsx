@@ -45,7 +45,7 @@ const HomePage = () => (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div className="order-2 lg:order-1">
             <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-4 block">
-              As seen on Shark Tank & available at CVS
+              As seen on Shark Tank
             </span>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-bold text-foreground leading-[1.12] mb-5">
               Discreet storage for the routines that matter{" "}
@@ -63,7 +63,7 @@ const HomePage = () => (
                 ))}
               </div>
               <span className="text-sm font-semibold text-foreground">4.9/5</span>
-              <span className="text-sm text-muted-foreground">— 2,400+ happy customers</span>
+              <span className="text-sm text-muted-foreground">— 30,000+ happy customers</span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
