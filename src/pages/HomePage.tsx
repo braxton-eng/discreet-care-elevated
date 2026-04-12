@@ -208,7 +208,7 @@ const HomePage = () => (
         <SectionHeader
           eyebrow="Built For You"
           title="Whatever your routine, we've got you."
-          description="We serve anyone managing a personal care routine who values discretion, organization, and dignity—no matter the reason."
+          description="We serve anyone managing a personal care routine who values discretion, organization, and dignity no matter the reason."
         />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {communities.map((c) => (
