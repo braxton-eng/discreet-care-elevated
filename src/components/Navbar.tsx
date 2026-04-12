@@ -9,7 +9,7 @@ const navItems = [
     label: "Shop",
     path: "/shop",
     children: [
-      { label: "Medical Storage", path: "/shop/medical-storage" },
+      { label: "Personal Care Storage", path: "/shop/medical-storage" },
       { label: "Sharps Disposal", path: "/shop/sharps-disposal" },
       { label: "Bundles", path: "/shop/bundles" },
       { label: "Duffles & Backpacks", path: "/shop/duffles-backpacks" },

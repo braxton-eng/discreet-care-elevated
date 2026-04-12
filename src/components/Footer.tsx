@@ -9,13 +9,13 @@ const Footer = () => (
             STEALTH BROS <span className="text-accent">&</span> CO.
           </h3>
           <p className="text-sm text-primary-foreground/70 leading-relaxed">
-            Discreet medical storage designed for real life. Built for people managing ongoing care routines.
+            Discreet personal care storage designed for real life. Built for anyone managing a daily routine that deserves privacy, organization, and confidence.
           </p>
         </div>
         <div>
           <h4 className="font-sans text-xs font-semibold uppercase tracking-widest mb-4">Shop</h4>
           <div className="space-y-2.5">
-            {["Medical Storage", "Sharps Disposal", "Bundles", "Duffles & Backpacks"].map((item) => (
+            {["Personal Care Storage", "Sharps Disposal", "Bundles", "Duffles & Backpacks"].map((item) => (
               <Link key={item} to="/shop" className="block text-sm text-primary-foreground/70 hover:text-accent transition-colors">
                 {item}
               </Link>
