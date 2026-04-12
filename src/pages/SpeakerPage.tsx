@@ -86,7 +86,7 @@ const SpeakerPage = () => (
               Founder of Stealth Bros & Co., Shark Tank alumni, and advocate for inclusive healthcare design. Braxton speaks at conferences, corporate events, and healthcare summits about the intersection of lived experience, entrepreneurship, and underserved community advocacy.
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
-              {["Shark Tank Alumni", "CVS Partner", "Forbes Feature", "50K+ Customers"].map((cred) => (
+              {["Shark Tank Alumni", "NGLCC Certified", "LPN Educator", "30K+ Customers"].map((cred) => (
                 <span key={cred} className="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-sans font-semibold">{cred}</span>
               ))}
             </div>
