@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeader from "@/components/SectionHeader";
 import { ArrowRight, Shield, Briefcase, Heart, Star, Package, Truck } from "lucide-react";
-import heroImg from "@/assets/hero-product.jpg";
+import heroImg from "@/assets/hero-product.png";
 import catMedical from "@/assets/category-medical-storage.jpg";
 import catSharps from "@/assets/category-sharps.jpg";
 import catDuffles from "@/assets/category-duffles.jpg";
