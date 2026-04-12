@@ -229,7 +229,7 @@ const HomePage = () => (
           Your care routine should fit <span className="italic">your life.</span>
         </h2>
         <p className="text-primary-foreground/60 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-          We believe that care doesn't stop at the pharmacy—or the supplement shelf, or the wellness aisle. That's why we create products that support what happens next, whatever your routine looks like.
+          We believe that care doesn't stop at the pharmacy or the supplement shelf, or the wellness aisle. That's why we create products that support what happens next, whatever your routine looks like.
         </p>
         <Button asChild variant="hero" size="lg">
           <Link to="/about">Learn More About Us</Link>
