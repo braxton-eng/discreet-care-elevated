@@ -63,7 +63,7 @@ const AboutPage = () => (
           {[
             { stat: "50K+", label: "Customers Served" },
             { stat: "4.9★", label: "Average Rating" },
-            { stat: "CVS", label: "Retail Partner" },
+            { stat: "NGLCC", label: "Certified Business" },
             { stat: "Shark Tank", label: "Featured On" },
           ].map((s) => (
             <div key={s.label}>
