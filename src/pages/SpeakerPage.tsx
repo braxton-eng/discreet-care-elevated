@@ -20,6 +20,7 @@ const engagements = [
       "Vanguard – Private Event Speaker",
       "Experian Summit – LGBTQ+ Finance Panelist",
       "Fulton Bank – ERG Keynote Speaker",
+      "Small Business Expo – Philadelphia & Washington DC",
     ],
   },
   {
