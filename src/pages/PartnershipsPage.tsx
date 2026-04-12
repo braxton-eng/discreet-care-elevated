@@ -14,7 +14,7 @@ const PartnershipsPage = () => (
       <div className="container-narrow section-padding text-center pt-10 md:pt-14">
         <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-3 block">Partnerships</span>
         <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground leading-[1.12] mb-4">
-          Let's improve patient experience—together.
+          Let's improve patient experience together.
         </h1>
         <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl mx-auto mb-8">
           We partner with healthcare organizations, pharmacies, retailers, and corporate wellness programs to bring dignity, organization, and discretion to patient care.
@@ -49,7 +49,7 @@ const PartnershipsPage = () => (
           {[
             { title: "Improve Adherence", desc: "Organized care routines lead to better medication adherence and patient outcomes." },
             { title: "Support Dignity", desc: "Our products remove stigma and give patients privacy in managing their health." },
-            { title: "Proven Brand", desc: "As seen on Shark Tank and available at CVS. Trusted by 50K+ customers." },
+            { title: "Proven Brand", desc: "As seen on Shark Tank and collaborated with Stanford University, Cleveland Clinic. Trusted by 30K+ customers." },
           ].map((v) => (
             <div key={v.title} className="p-6 rounded-xl bg-card border border-border text-center">
               <h3 className="font-serif text-base font-semibold mb-2">{v.title}</h3>
