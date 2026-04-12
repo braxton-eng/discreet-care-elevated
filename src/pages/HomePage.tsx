@@ -41,30 +41,54 @@ const HomePage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="Stealth Bros discreet personal care case" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
-        </div>
-        <div className="relative container-wide section-padding py-32">
-          <div className="max-w-2xl">
-            <span className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-accent mb-6 block">
-              As seen on Shark Tank & available at CVS
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-[1.1] mb-6">
-              Discreet storage for the routines that matter{" "}
-              <span className="italic">most.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-10 max-w-lg">
-              Built for people managing personal care, wellness, and health routines—with privacy, organization, and confidence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/shop">Shop Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-              <Button asChild variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <Link to="/about">Our Story</Link>
-              </Button>
+      <section className="py-16 md:py-24 lg:py-28 bg-secondary">
+        <div className="container-wide section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left — Copy */}
+            <div className="order-2 lg:order-1">
+              <span className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-accent mb-4 block">
+                As seen on Shark Tank & available at CVS
+              </span>
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-[1.1] mb-5">
+                Discreet storage for the routines that matter{" "}
+                <span className="italic">most.</span>
+              </h1>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-lg">
+                Built for people managing personal care, wellness, and health routines—with privacy, organization, and confidence.
+              </p>
+
+              {/* Star rating + social proof */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                  ))}
+                </div>
+                <span className="text-sm font-semibold text-foreground">4.9/5</span>
+                <span className="text-sm text-muted-foreground">— 2,400+ happy customers</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                <Button asChild variant="hero" size="xl">
+                  <Link to="/shop">Shop Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+                <Button asChild variant="hero-outline" size="xl">
+                  <Link to="/about">Our Story</Link>
+                </Button>
+              </div>
+
+              {/* Trust badges */}
+              <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1.5"><CheckCircle className="h-4 w-4 text-accent" /> Free shipping over $75</span>
+                <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-accent" /> 30-day guarantee</span>
+              </div>
+            </div>
+
+            {/* Right — Image */}
+            <div className="order-1 lg:order-2">
+              <div className="rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
+                <img src={heroImg} alt="Stealth Bros discreet personal care case" className="w-full h-full object-cover" width={960} height={1200} />
+              </div>
             </div>
           </div>
         </div>
