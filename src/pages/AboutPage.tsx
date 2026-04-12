@@ -16,16 +16,16 @@ const AboutPage = () => (
             </h1>
             <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
               <p>
-                Stealth Bros & Co. was founded by Braxton Fleming after his own experience managing hormone replacement therapy revealed a gap no one was addressing: the moment between picking up your prescription—or your supplements, or your wellness essentials—and actually using them.
+                Stealth Bros & Co. was founded by Braxton Fleming after his own experience managing hormone replacement therapy revealed a gap no one was addressing: the moment between picking up your prescription or your supplements, or your wellness essentials and actually using them.
               </p>
               <p>
                 There were no discreet, well-designed storage solutions for people managing daily personal care routines. Just plastic bags, shoeboxes, and a lot of anxiety about being seen. Braxton knew there had to be a better way.
               </p>
               <p>
-                What started as a personal solution quickly became a mission. After appearing on <strong className="text-foreground">Shark Tank</strong> and securing a partnership with <strong className="text-foreground">CVS</strong>, Stealth Bros & Co. has grown into a movement—serving HRT, IVF, diabetes, GLP-1, supplement, and wellness communities with products that bring privacy, organization, and dignity to every personal care routine.
+                What started as a personal solution quickly became a mission. After appearing on <strong className="text-foreground">Shark Tank</strong> and securing a partnership with <strong className="text-foreground">CVS</strong>, Stealth Bros & Co. has grown into a movement serving HRT, IVF, diabetes, GLP-1, supplement, and wellness communities with products that bring privacy, organization, and dignity to every personal care routine.
               </p>
               <p className="font-serif text-foreground text-lg italic">
-                "Your routine is your business—we just make it easier to manage."
+                "Your routine is your business, we just make it easier to manage."
               </p>
             </div>
           </div>
