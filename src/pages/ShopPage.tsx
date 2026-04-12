@@ -7,11 +7,11 @@ import catDuffles from "@/assets/category-duffles.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
 
 const categories = [
-  { title: "Medical Storage", desc: "Our signature Dopp kits—discreet, organized, and designed for daily routines.", img: catMedical, path: "/shop/medical-storage", count: "12 products" },
+  { title: "Personal Care Storage", desc: "Our signature Dopp kits—discreet, organized, and designed for your daily routine.", img: catMedical, path: "/shop/medical-storage", count: "12 products" },
   { title: "Sharps Disposal", desc: "Safe, sleek sharps containers designed to belong in your space.", img: catSharps, path: "/shop/sharps-disposal", count: "6 products" },
   { title: "Bundles", desc: "Complete care kits curated for value and convenience.", img: catBundles, path: "/shop/bundles", count: "8 products" },
-  { title: "Duffles & Backpacks", desc: "Travel-ready bags with integrated medical storage compartments.", img: catDuffles, path: "/shop/duffles-backpacks", count: "5 products" },
-  { title: "Education", desc: "Guides, ebooks, and resources to support your care journey.", img: catMedical, path: "/shop/education", count: "4 resources" },
+  { title: "Duffles & Backpacks", desc: "Travel-ready bags with integrated private storage compartments.", img: catDuffles, path: "/shop/duffles-backpacks", count: "5 products" },
+  { title: "Education", desc: "Guides, ebooks, and resources to support your personal care journey.", img: catMedical, path: "/shop/education", count: "4 resources" },
   { title: "Gift Cards", desc: "Give the gift of confidence and organization.", img: catBundles, path: "/shop/gift-cards", count: "From $25" },
 ];
 
@@ -23,7 +23,7 @@ const ShopPage = () => (
         <SectionHeader
           eyebrow="Shop"
           title="Shop Stealth Bros & Co."
-          description="Discreet, lifestyle-integrated solutions designed for real-life care routines."
+          description="Discreet, lifestyle-integrated solutions designed for whatever your daily routine looks like."
         />
       </div>
     </section>

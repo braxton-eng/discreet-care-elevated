@@ -6,7 +6,7 @@ import catSharps from "@/assets/category-sharps.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
 
 const faqs = [
-  { q: "What fits inside the Stealth Case?", a: "The Stealth Case is designed to hold vials, syringes, alcohol swabs, sharps containers, and more. It fits most standard medical supplies used in HRT, IVF, diabetes, and GLP-1 routines." },
+  { q: "What fits inside the Stealth Case?", a: "The Stealth Case is designed to hold a wide range of personal care essentials—vials, syringes, supplements, wellness tools, alcohol swabs, sharps containers, and more. It works for HRT, IVF, diabetes, GLP-1, supplement routines, and any daily care needs." },
   { q: "Is it TSA-friendly?", a: "Yes! The Stealth Case is designed for travel and fits easily in carry-on luggage. It's discreet enough to pass through security without drawing attention." },
   { q: "How do I clean it?", a: "The exterior can be wiped down with a damp cloth. The interior lining is water-resistant and easy to maintain." },
   { q: "What's your return policy?", a: "We offer a 30-day satisfaction guarantee. If you're not happy with your purchase, we'll make it right." },
@@ -34,7 +34,7 @@ const ProductPage = () => (
 
           {/* Details */}
           <div className="lg:py-4">
-            <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">Medical Storage</span>
+            <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">Personal Care Storage</span>
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2 mb-2">The Stealth Case</h1>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex gap-0.5">
@@ -48,13 +48,13 @@ const ProductPage = () => (
             <div className="bg-secondary rounded-lg p-6 mb-6">
               <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-accent mb-2">Why This Matters</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Your care routine deserves better than a plastic bag. The Stealth Case gives you privacy, organization, and the confidence to manage your health on your terms—at home or on the go.
+                Your personal care routine deserves better than a plastic bag. The Stealth Case gives you privacy, organization, and the confidence to manage your routine on your terms—whether it's medication, supplements, wellness tools, or anything in between.
               </p>
             </div>
 
             {/* Key Benefits */}
             <div className="space-y-3 mb-8">
-              {["Discreet — looks like a premium grooming kit", "Organized — custom compartments for vials, syringes & swabs", "Travel-ready — TSA-friendly and fits in any carry-on", "Built for routine consistency — everything in its place"].map((b) => (
+              {["Discreet — looks like a premium grooming kit", "Organized — custom compartments for all your essentials", "Travel-ready — TSA-friendly and fits in any carry-on", "Built for routine consistency — everything in its place"].map((b) => (
                 <div key={b} className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                   <span className="text-sm text-foreground">{b}</span>
@@ -64,7 +64,7 @@ const ProductPage = () => (
 
             {/* Use Cases */}
             <div className="flex flex-wrap gap-2 mb-8">
-              {["HRT", "IVF", "Diabetes", "GLP-1"].map((uc) => (
+              {["HRT", "IVF", "Diabetes", "GLP-1", "Supplements", "Personal Wellness"].map((uc) => (
                 <span key={uc} className="px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-sans font-medium">{uc}</span>
               ))}
             </div>
@@ -79,7 +79,7 @@ const ProductPage = () => (
               <div className="space-y-4">
                 {[
                   { step: "1", title: "Unzip", desc: "Open your Stealth Case to reveal organized compartments." },
-                  { step: "2", title: "Store", desc: "Place your vials, syringes, swabs, and sharps container." },
+                  { step: "2", title: "Store", desc: "Place your essentials—medication, supplements, tools, or personal care items." },
                   { step: "3", title: "Go", desc: "Zip up and take your routine anywhere—discreetly." },
                 ].map((s) => (
                   <div key={s.step} className="flex gap-4">

@@ -9,10 +9,10 @@ import catDuffles from "@/assets/category-duffles.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
 
 const categories = [
-  { title: "Medical Storage", desc: "Dopp kits designed for discretion and daily routine.", img: catMedical, path: "/shop/medical-storage" },
+  { title: "Personal Care Storage", desc: "Dopp kits designed for discretion, privacy, and your daily routine.", img: catMedical, path: "/shop/medical-storage" },
   { title: "Sharps Disposal", desc: "Safe, sleek containers that belong in your space.", img: catSharps, path: "/shop/sharps-disposal" },
-  { title: "Bundles", desc: "Complete care kits at a better value.", img: catBundles, path: "/shop/bundles" },
-  { title: "Duffles & Backpacks", desc: "Travel-ready bags with built-in medical compartments.", img: catDuffles, path: "/shop/duffles-backpacks" },
+  { title: "Bundles", desc: "Complete care kits curated for value and convenience.", img: catBundles, path: "/shop/bundles" },
+  { title: "Duffles & Backpacks", desc: "Travel-ready bags with built-in private compartments.", img: catDuffles, path: "/shop/duffles-backpacks" },
 ];
 
 const bestSellers = [
@@ -24,16 +24,17 @@ const bestSellers = [
 
 const testimonials = [
   { text: "Finally, something that doesn't scream 'medical.' I travel with mine everywhere.", author: "Maya R.", role: "HRT" },
-  { text: "The organization alone changed how I feel about my daily routine. It's confidence in a bag.", author: "James L.", role: "Diabetes" },
+  { text: "The organization alone changed how I feel about my daily routine. It's confidence in a bag.", author: "James L.", role: "Daily Wellness" },
   { text: "I bought one for my IVF journey and gifted one to a friend. Life-changing.", author: "Sarah K.", role: "IVF" },
 ];
 
 const communities = [
-  { icon: Heart, label: "HRT", desc: "Hormone replacement therapy" },
-  { icon: Heart, label: "IVF & Fertility", desc: "Fertility treatments" },
-  { icon: Shield, label: "Diabetes", desc: "Insulin & glucose management" },
-  { icon: Shield, label: "GLP-1 & Peptides", desc: "Weight management" },
-  { icon: Briefcase, label: "Chronic Care", desc: "Ongoing care routines" },
+  { icon: Heart, label: "HRT & Hormone Care", desc: "Hormone replacement therapy" },
+  { icon: Heart, label: "IVF & Fertility", desc: "Fertility treatments & family planning" },
+  { icon: Shield, label: "Diabetes & Insulin", desc: "Glucose management routines" },
+  { icon: Shield, label: "GLP-1 & Peptides", desc: "Weight management & wellness" },
+  { icon: Briefcase, label: "Daily Wellness", desc: "Supplements, vitamins & personal care" },
+  { icon: Heart, label: "Chronic & Ongoing Care", desc: "Any routine that needs discretion" },
 ];
 
 const HomePage = () => {
@@ -42,7 +43,7 @@ const HomePage = () => {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Stealth Bros medical storage case" className="w-full h-full object-cover" width={1920} height={1080} />
+          <img src={heroImg} alt="Stealth Bros discreet personal care case" className="w-full h-full object-cover" width={1920} height={1080} />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
         </div>
         <div className="relative container-wide section-padding py-32">
@@ -51,11 +52,11 @@ const HomePage = () => {
               As seen on Shark Tank & available at CVS
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-[1.1] mb-6">
-              Discreet medical storage designed for{" "}
-              <span className="italic">real life.</span>
+              Discreet storage for the routines that matter{" "}
+              <span className="italic">most.</span>
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-10 max-w-lg">
-              Built for people managing ongoing care routines—with privacy, organization, and confidence.
+              Built for people managing personal care, wellness, and health routines—with privacy, organization, and confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild variant="hero" size="xl">
@@ -74,14 +75,14 @@ const HomePage = () => {
         <div className="container-wide section-padding">
           <SectionHeader
             eyebrow="The Problem"
-            title="Care doesn't stop at the pharmacy."
-            description="For millions of people, daily care routines involve supplies that need privacy, organization, and portability. Yet the solutions available feel clinical, clunky, or nonexistent."
+            title="Your routine deserves better."
+            description="For millions of people, daily care involves supplies that need privacy, organization, and portability—whether it's medication, supplements, wellness tools, or personal essentials. Yet the solutions available feel clinical, clunky, or nonexistent."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
-              { icon: Shield, title: "Lack of Privacy", desc: "Medical supplies shouldn't announce themselves. Your care routine deserves discretion." },
-              { icon: Briefcase, title: "Disorganization", desc: "Scattered supplies lead to missed doses and stressful routines. Organization creates confidence." },
-              { icon: Heart, title: "Stigma", desc: "No one should feel self-conscious about managing their health. Healthcare should fit real life." },
+              { icon: Shield, title: "Lack of Privacy", desc: "Your personal care routine is your business. Whether it's medication, supplements, or wellness essentials—discretion matters." },
+              { icon: Briefcase, title: "Disorganization", desc: "Scattered supplies lead to missed routines and unnecessary stress. Organization creates confidence." },
+              { icon: Heart, title: "Stigma & Judgment", desc: "No one should feel self-conscious about managing their health or personal care. Your routine should fit seamlessly into your life." },
             ].map((item) => (
               <div key={item.title} className="text-center p-8 rounded-lg bg-card border border-border">
                 <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-5">
@@ -176,8 +177,8 @@ const HomePage = () => {
       {/* Who This Is For */}
       <section className="py-20 md:py-28 bg-secondary">
         <div className="container-wide section-padding">
-          <SectionHeader eyebrow="Built For You" title="Who this is for." description="We serve anyone managing an ongoing care routine who wants discretion, organization, and dignity." />
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <SectionHeader eyebrow="Built For You" title="Whatever your routine, we've got you." description="We serve anyone managing a personal care routine who values discretion, organization, and dignity—no matter the reason." />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {communities.map((c) => (
               <div key={c.label} className="text-center p-6 rounded-lg bg-card border border-border">
                 <c.icon className="h-8 w-8 text-accent mx-auto mb-3" />
@@ -194,10 +195,10 @@ const HomePage = () => {
         <div className="container-narrow section-padding text-center">
           <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3 block">Our Mission</span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight mb-6">
-            Healthcare should fit <span className="italic">real life.</span>
+            Your care routine should fit <span className="italic">your life.</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            We believe that care doesn't stop at the pharmacy. That's why we create products that support what happens next—with privacy, dignity, and design that belongs in your life.
+            We believe that care doesn't stop at the pharmacy—or the supplement shelf, or the wellness aisle. That's why we create products that support what happens next, whatever your routine looks like.
           </p>
           <Button asChild variant="premium" size="lg">
             <Link to="/about">Learn More About Us</Link>
