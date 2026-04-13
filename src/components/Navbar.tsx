@@ -10,7 +10,7 @@ const navItems = [
     label: "Shop",
     path: "/shop",
     children: [
-      { label: "Personal Care Storage", path: "https://www.stealthbrosco.com/collections/dopp-kits", external: true },
+      { label: "Personal Care Storage", path: "", external: true },
       { label: "Sharps Disposal", path: "/shop/sharps-disposal" },
       { label: "Bundles", path: "/shop/bundles" },
       { label: "Duffles & Backpacks", path: "/shop/duffles-backpacks" },
