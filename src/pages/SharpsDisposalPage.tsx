@@ -13,6 +13,7 @@ import shuttle1 from "@/assets/shuttle-1.jpg";
 import shuttle3 from "@/assets/shuttle-3.jpg";
 import shuttle5 from "@/assets/shuttle-5.jpg";
 import sharpsContainer from "@/assets/sharps-container.jpg";
+import container2 from "@/assets/container-2.jpg";
 
 const products = [
   {
