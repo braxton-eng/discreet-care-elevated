@@ -12,6 +12,8 @@ import BundlesPage from "@/pages/BundlesPage";
 import ProductPage from "@/pages/ProductPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import AscendPage from "@/pages/AscendPage";
+import PersonalCareStoragePage from "@/pages/PersonalCareStoragePage";
+import DufflesBackpacksPage from "@/pages/DufflesBackpacksPage";
 import SharpsDisposalPage from "@/pages/SharpsDisposalPage";
 import AboutPage from "@/pages/AboutPage";
 import SpeakerPage from "@/pages/SpeakerPage";
