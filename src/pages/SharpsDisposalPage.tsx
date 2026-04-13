@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/select";
 import { ArrowRight, ShieldCheck, Star, Truck } from "lucide-react";
 import sharpsHero from "@/assets/sharps-hero.jpg";
-import shuttle1 from "@/assets/shuttle-1.jpg";
-import shuttle3 from "@/assets/shuttle-3.jpg";
-import shuttle5 from "@/assets/shuttle-5.jpg";
-import sharpsContainer from "@/assets/sharps-container.jpg";
+import shuttle1 from "@/assets/shuttle-1.png";
+import shuttle3 from "@/assets/shuttle-3.png";
+import shuttle5 from "@/assets/shuttle-5.png";
+import container1 from "@/assets/container-1.jpg";
 import container2 from "@/assets/container-2.jpg";
 
 const products = [
@@ -45,7 +45,7 @@ const products = [
     dimensions: "10 × 10 × 15 cm",
     reviews: 18,
     rating: 5,
-    images: [sharpsContainer, container2],
+    images: [container1, container2],
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Container", "2 Containers"],
     subFrequencies: [
@@ -63,7 +63,7 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
   const [selectedOption, setSelectedOption] = useState(0);
   const isSubscribe = purchaseType === "subscribe";
   const displayPrice = isSubscribe ? p.subPrice : p.oneTimePrice;
-  const currentImage = p.images[selectedOption] ?? p.images[0];
+  
 
   return (
     <div
