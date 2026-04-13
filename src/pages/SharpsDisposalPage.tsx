@@ -9,7 +9,9 @@ import {
 } from "@/components/ui/select";
 import { ArrowRight, ShieldCheck, Star, Truck } from "lucide-react";
 import sharpsHero from "@/assets/sharps-hero.jpg";
-import sharpShuttle from "@/assets/sharp-shuttle.jpg";
+import shuttle1 from "@/assets/shuttle-1.jpg";
+import shuttle3 from "@/assets/shuttle-3.jpg";
+import shuttle5 from "@/assets/shuttle-5.jpg";
 import sharpsContainer from "@/assets/sharps-container.jpg";
 
 const products = [
@@ -23,7 +25,7 @@ const products = [
     dimensions: "16 × 4.5 cm",
     reviews: 27,
     rating: 5,
-    image: sharpShuttle,
+    images: [shuttle1, shuttle3, shuttle5],
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Shuttle", "3 Shuttles", "5 Shuttles"],
     subFrequencies: [
@@ -42,7 +44,7 @@ const products = [
     dimensions: "10 × 10 × 15 cm",
     reviews: 18,
     rating: 5,
-    image: sharpsContainer,
+    images: [sharpsContainer],
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Container", "2 Containers"],
     subFrequencies: [
@@ -57,8 +59,10 @@ type PurchaseType = "one-time" | "subscribe";
 const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean }) => {
   const [purchaseType, setPurchaseType] = useState<PurchaseType>("one-time");
   const [frequency, setFrequency] = useState(p.subFrequencies[0]);
+  const [selectedOption, setSelectedOption] = useState(0);
   const isSubscribe = purchaseType === "subscribe";
   const displayPrice = isSubscribe ? p.subPrice : p.oneTimePrice;
+  const currentImage = p.images[selectedOption] ?? p.images[0];
 
   return (
     <div
@@ -66,16 +70,25 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
         reversed ? "lg:[direction:rtl]" : ""
       }`}
     >
-      {/* Image */}
-      <div className="aspect-square rounded-xl overflow-hidden bg-secondary lg:[direction:ltr]">
-        <img
-          src={p.image}
-          alt={p.name}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-          width={800}
-          height={800}
-        />
+      {/* Image with slide transition */}
+      <div className="aspect-square rounded-xl overflow-hidden bg-secondary lg:[direction:ltr] relative">
+        {p.images.map((img, idx) => (
+          <img
+            key={idx}
+            src={img}
+            alt={`${p.name} — ${p.options[idx] ?? p.name}`}
+            loading="lazy"
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out ${
+              idx === selectedOption
+                ? "opacity-100 translate-x-0"
+                : idx < selectedOption
+                ? "opacity-0 -translate-x-full"
+                : "opacity-0 translate-x-full"
+            }`}
+            width={800}
+            height={800}
+          />
+        ))}
       </div>
 
       {/* Details */}
@@ -172,16 +185,17 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
         {/* Variant options */}
         <div className="flex flex-wrap gap-2 mb-3">
           {p.options.map((opt, idx) => (
-            <span
+            <button
               key={opt}
+              onClick={() => setSelectedOption(idx)}
               className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer ${
-                idx === 0
+                idx === selectedOption
                   ? "border-accent bg-accent/10 text-accent"
                   : "border-border text-muted-foreground hover:border-accent/50"
               }`}
             >
               {opt}
-            </span>
+            </button>
           ))}
         </div>
 
