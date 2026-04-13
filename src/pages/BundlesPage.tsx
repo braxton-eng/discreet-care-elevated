@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ShoppingCart, Loader2, Package, CheckCircle, ArrowRight } from "lucide-react";
+import { ShoppingCart, Loader2, Package, CheckCircle, ArrowRight, ShieldCheck, Truck, Star } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { storefrontApiRequest } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import type { ShopifyProduct } from "@/lib/shopify";
+import catBundles from "@/assets/category-bundles.jpg";
 
 const BUNDLES_QUERY = `
   query GetBundles($first: Int!, $query: String!) {
