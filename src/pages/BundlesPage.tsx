@@ -255,17 +255,10 @@ const BundlesPage = () => {
       {/* Bundle Products */}
       <section className="pb-16 md:pb-24">
         <div className="container-wide section-padding">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
-              Shop All Bundles
-            </h2>
-            <Link
-              to="/shop/all"
-              className="text-xs font-sans uppercase tracking-widest text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1"
-            >
-              View All Products <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
+          <SectionHeader
+            eyebrow="Shop All Bundles"
+            title="Find the perfect bundle for your routine."
+          />
 
           {isLoading ? (
             <div className="flex items-center justify-center py-20">
