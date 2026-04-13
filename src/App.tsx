@@ -12,6 +12,8 @@ import BundlesPage from "@/pages/BundlesPage";
 import ProductPage from "@/pages/ProductPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import AscendPage from "@/pages/AscendPage";
+import PersonalCareStoragePage from "@/pages/PersonalCareStoragePage";
+import DufflesBackpacksPage from "@/pages/DufflesBackpacksPage";
 import SharpsDisposalPage from "@/pages/SharpsDisposalPage";
 import AboutPage from "@/pages/AboutPage";
 import SpeakerPage from "@/pages/SpeakerPage";
@@ -36,6 +38,8 @@ const AppContent = () => {
           <Route path="/shop/bundles" element={<BundlesPage />} />
           <Route path="/shop/:category" element={<ShopPage />} />
           <Route path="/shop/product/:slug" element={<ProductDetailPage />} />
+          <Route path="/shop/medical-storage" element={<PersonalCareStoragePage />} />
+          <Route path="/shop/duffles-backpacks" element={<DufflesBackpacksPage />} />
           <Route path="/ascend" element={<AscendPage />} />
           <Route path="/shop/sharps-disposal" element={<SharpsDisposalPage />} />
           <Route path="/about" element={<AboutPage />} />
