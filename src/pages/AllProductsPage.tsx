@@ -74,10 +74,10 @@ const categoryLabels: Record<Category, string> = {
   other: "More",
 };
 
-function categorizeProduct(product: ShopifyProduct["node"]): Category {
-  const title = product.title.toLowerCase();
+function categorizeProduct(product: any): Category {
+  const title = (product.title || "").toLowerCase();
   const type = (product.productType || "").toLowerCase();
-  const tags = ((product as any).tags || []).map((t: string) => t.toLowerCase());
+  const tags = (product.tags || []).map((t: string) => t.toLowerCase());
 
   if (title.includes("bundle") || title.includes("bundle:")) return "bundles";
   if (title.includes("ebook") || title.includes("一ebook") || type.includes("e-book")) return "education";
