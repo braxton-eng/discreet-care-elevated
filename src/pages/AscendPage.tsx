@@ -9,7 +9,7 @@ const AscendPage = () => (
     {/* Hero */}
     <section className="relative py-20 md:py-32">
       <div className="absolute inset-0">
-        <img src={ascendHero} alt="Stealth Ascend" className="w-full h-full object-cover object-center" />
+        <img src={ascendHero} alt="Stealth Ascend" className="w-full h-full object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/40" />
       </div>
       <div className="relative container-wide section-padding">
