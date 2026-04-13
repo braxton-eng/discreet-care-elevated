@@ -9,7 +9,9 @@ import {
 } from "@/components/ui/select";
 import { ArrowRight, ShieldCheck, Star, Truck } from "lucide-react";
 import sharpsHero from "@/assets/sharps-hero.jpg";
-import sharpShuttle from "@/assets/sharp-shuttle.jpg";
+import shuttle1 from "@/assets/shuttle-1.jpg";
+import shuttle3 from "@/assets/shuttle-3.jpg";
+import shuttle5 from "@/assets/shuttle-5.jpg";
 import sharpsContainer from "@/assets/sharps-container.jpg";
 
 const products = [
@@ -23,7 +25,7 @@ const products = [
     dimensions: "16 × 4.5 cm",
     reviews: 27,
     rating: 5,
-    image: sharpShuttle,
+    images: [shuttle1, shuttle3, shuttle5],
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Shuttle", "3 Shuttles", "5 Shuttles"],
     subFrequencies: [
@@ -42,7 +44,7 @@ const products = [
     dimensions: "10 × 10 × 15 cm",
     reviews: 18,
     rating: 5,
-    image: sharpsContainer,
+    images: [sharpsContainer],
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Container", "2 Containers"],
     subFrequencies: [
