@@ -69,15 +69,27 @@ const Navbar = () => {
                 {item.children && (
                   <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="bg-card border border-border rounded-lg shadow-xl py-2 min-w-[220px]">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.path}
-                          to={child.path}
-                          className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {item.children.map((child) =>
+                        child.external ? (
+                          <a
+                            key={child.path}
+                            href={child.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
+                          >
+                            {child.label}
+                          </a>
+                        ) : (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   </div>
                 )}
@@ -118,15 +130,27 @@ const Navbar = () => {
                 </Link>
                 {item.children && (
                   <div className="pl-4 space-y-0.5 pb-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.path}
-                        to={child.path}
-                        className="block py-2 text-sm text-muted-foreground"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    {item.children.map((child) =>
+                      child.external ? (
+                        <a
+                          key={child.path}
+                          href={child.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block py-2 text-sm text-muted-foreground"
+                        >
+                          {child.label}
+                        </a>
+                      ) : (
+                        <Link
+                          key={child.path}
+                          to={child.path}
+                          className="block py-2 text-sm text-muted-foreground"
+                        >
+                          {child.label}
+                        </Link>
+                      )
+                    )}
                   </div>
                 )}
               </div>
