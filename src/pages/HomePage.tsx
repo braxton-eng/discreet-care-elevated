@@ -68,7 +68,7 @@ const HomePage = () => (
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild variant="hero" size="lg">
-                <Link to="/shop">Shop Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <Link to="/shop/all">Shop Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
               <Button asChild variant="hero-outline" size="lg">
                 <Link to="/about">Our Story</Link>
