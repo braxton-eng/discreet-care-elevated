@@ -1,4 +1,12 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ArrowRight, ShieldCheck, Star, Truck } from "lucide-react";
 import sharpsHero from "@/assets/sharps-hero.jpg";
 import sharpShuttle from "@/assets/sharp-shuttle.jpg";
@@ -6,38 +14,194 @@ import sharpsContainer from "@/assets/sharps-container.jpg";
 
 const products = [
   {
+    id: "shuttle",
     name: "Stealth Sharp Shuttle",
     tagline: "Compact. Portable. Discreet.",
     desc: "Designed to hold your sharps waste on the go. Pairs perfectly with our Jr/Dopp Kit for discreet travel or at-home storage. Holds approx. 20 needle tips per shuttle — one-time use with a lockable seal.",
-    price: "$4.25",
-    originalPrice: "$5.00",
-    badge: "Subscribe & Save 15%",
+    oneTimePrice: "$5.00",
+    subPrice: "$4.25",
     dimensions: "16 × 4.5 cm",
     reviews: 27,
     rating: 5,
     image: sharpShuttle,
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Shuttle", "3 Shuttles", "5 Shuttles"],
+    subFrequencies: [
+      "Every 2 months — 15% off",
+      "Every 3 months — 15% off",
+      "Every 6 months — 15% off",
+    ],
   },
   {
+    id: "container",
     name: "Stealth Sharps Container",
     tagline: "Countertop-worthy disposal.",
     desc: "A sharps container reimagined for your dresser, bathroom counter, or nightstand. Luxury meets function — because disposal should never feel clinical. Lockable lid with clear directions on the package.",
-    price: "$8.50",
-    originalPrice: "$10.00",
-    badge: "Subscribe & Save 15%",
+    oneTimePrice: "$10.00",
+    subPrice: "$8.50",
     dimensions: "10 × 10 × 15 cm",
     reviews: 18,
     rating: 5,
     image: sharpsContainer,
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Container", "2 Containers"],
+    subFrequencies: [
+      "Every 3 months — 15% off",
+      "Every 6 months — 15% off",
+    ],
   },
 ];
 
+type PurchaseType = "one-time" | "subscribe";
+
+const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean }) => {
+  const [purchaseType, setPurchaseType] = useState<PurchaseType>("one-time");
+  const [frequency, setFrequency] = useState(p.subFrequencies[0]);
+  const isSubscribe = purchaseType === "subscribe";
+  const displayPrice = isSubscribe ? p.subPrice : p.oneTimePrice;
+
+  return (
+    <div
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center ${
+        reversed ? "lg:[direction:rtl]" : ""
+      }`}
+    >
+      {/* Image */}
+      <div className="aspect-square rounded-xl overflow-hidden bg-secondary lg:[direction:ltr]">
+        <img
+          src={p.image}
+          alt={p.name}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          width={800}
+          height={800}
+        />
+      </div>
+
+      {/* Details */}
+      <div className="lg:[direction:ltr]">
+        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-1">
+          {p.name}
+        </h2>
+        <p className="font-sans text-sm text-muted-foreground mb-3">
+          {p.tagline}
+        </p>
+
+        {/* Rating */}
+        <div className="flex items-center gap-2 mb-4">
+          <div className="flex">
+            {Array.from({ length: p.rating }).map((_, s) => (
+              <Star key={s} className="h-3.5 w-3.5 fill-accent text-accent" />
+            ))}
+          </div>
+          <span className="text-xs text-muted-foreground">
+            ({p.reviews} reviews)
+          </span>
+        </div>
+
+        {/* Price */}
+        <div className="flex items-baseline gap-2.5 mb-5">
+          <span className="font-sans text-2xl font-bold text-foreground">
+            {displayPrice}
+          </span>
+          {isSubscribe && (
+            <span className="text-sm text-muted-foreground line-through">
+              {p.oneTimePrice}
+            </span>
+          )}
+        </div>
+
+        {/* Purchase type toggle */}
+        <div className="space-y-3 mb-5">
+          <label className="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer transition-colors hover:border-accent/40 has-[:checked]:border-accent has-[:checked]:bg-accent/5">
+            <input
+              type="radio"
+              name={`purchase-${p.id}`}
+              value="one-time"
+              checked={purchaseType === "one-time"}
+              onChange={() => setPurchaseType("one-time")}
+              className="accent-[hsl(var(--accent))]"
+            />
+            <div className="flex-1">
+              <span className="text-sm font-medium text-foreground">One-time purchase</span>
+              <span className="text-xs text-muted-foreground ml-2">{p.oneTimePrice}</span>
+            </div>
+          </label>
+
+          <label className="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer transition-colors hover:border-accent/40 has-[:checked]:border-accent has-[:checked]:bg-accent/5">
+            <input
+              type="radio"
+              name={`purchase-${p.id}`}
+              value="subscribe"
+              checked={purchaseType === "subscribe"}
+              onChange={() => setPurchaseType("subscribe")}
+              className="accent-[hsl(var(--accent))]"
+            />
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-foreground">Subscribe & save</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider bg-accent/10 text-accent px-2 py-0.5 rounded-full">
+                  15% off
+                </span>
+              </div>
+              <span className="text-xs text-muted-foreground">{p.subPrice}</span>
+            </div>
+          </label>
+
+          {/* Frequency dropdown */}
+          {isSubscribe && (
+            <Select value={frequency} onValueChange={setFrequency}>
+              <SelectTrigger className="w-full text-sm">
+                <SelectValue placeholder="Delivery frequency" />
+              </SelectTrigger>
+              <SelectContent>
+                {p.subFrequencies.map((f) => (
+                  <SelectItem key={f} value={f}>
+                    {f}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
+        </div>
+
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+          {p.desc}
+        </p>
+
+        {/* Variant options */}
+        <div className="flex flex-wrap gap-2 mb-3">
+          {p.options.map((opt, idx) => (
+            <span
+              key={opt}
+              className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer ${
+                idx === 0
+                  ? "border-accent bg-accent/10 text-accent"
+                  : "border-border text-muted-foreground hover:border-accent/50"
+              }`}
+            >
+              {opt}
+            </span>
+          ))}
+        </div>
+
+        <p className="text-[11px] text-muted-foreground mb-5">
+          Dimensions: {p.dimensions}
+        </p>
+
+        <Button asChild variant="hero" size="lg" className="w-full sm:w-auto">
+          <a href={p.url} target="_blank" rel="noopener noreferrer">
+            Shop Now <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
 const SharpsDisposalPage = () => (
   <div className="pt-28 md:pt-32">
-    {/* Hero — slim */}
+    {/* Hero */}
     <section className="relative py-20 md:py-28">
       <div className="absolute inset-0">
         <img
@@ -78,98 +242,7 @@ const SharpsDisposalPage = () => (
       <div className="container-wide section-padding">
         <div className="space-y-16 md:space-y-24">
           {products.map((p, i) => (
-            <div
-              key={p.name}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center ${
-                i % 2 === 1 ? "lg:[direction:rtl]" : ""
-              }`}
-            >
-              {/* Image */}
-              <div className="aspect-square rounded-xl overflow-hidden bg-secondary lg:[direction:ltr]">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  width={800}
-                  height={800}
-                />
-              </div>
-
-              {/* Details */}
-              <div className="lg:[direction:ltr]">
-                {p.badge && (
-                  <span className="inline-block bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
-                    {p.badge}
-                  </span>
-                )}
-                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-1">
-                  {p.name}
-                </h2>
-                <p className="font-sans text-sm text-muted-foreground mb-3">
-                  {p.tagline}
-                </p>
-
-                {/* Rating */}
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="flex">
-                    {Array.from({ length: p.rating }).map((_, s) => (
-                      <Star
-                        key={s}
-                        className="h-3.5 w-3.5 fill-accent text-accent"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs text-muted-foreground">
-                    ({p.reviews} reviews)
-                  </span>
-                </div>
-
-                {/* Price */}
-                <div className="flex items-baseline gap-2.5 mb-5">
-                  <span className="font-sans text-2xl font-bold text-foreground">
-                    {p.price}
-                  </span>
-                  <span className="text-sm text-muted-foreground line-through">
-                    {p.originalPrice}
-                  </span>
-                </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                  {p.desc}
-                </p>
-
-                {/* Options */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {p.options.map((opt, idx) => (
-                    <span
-                      key={opt}
-                      className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                        idx === 0
-                          ? "border-accent bg-accent/10 text-accent"
-                          : "border-border text-muted-foreground hover:border-accent/50"
-                      }`}
-                    >
-                      {opt}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="text-[11px] text-muted-foreground mb-5">
-                  Dimensions: {p.dimensions}
-                </p>
-
-                <Button asChild variant="hero" size="lg" className="w-full sm:w-auto">
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Shop Now <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-            </div>
+            <ProductCard key={p.id} p={p} reversed={i % 2 === 1} />
           ))}
         </div>
       </div>
