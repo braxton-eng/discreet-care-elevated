@@ -155,7 +155,7 @@ const AscendPage = () => (
         <h2 className="font-serif text-xl md:text-2xl font-semibold mb-8">Pair With Your Routine</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto">
           {[
-            { name: "Ascend + Pride Dopp Kit Bundle", price: "$175", save: "Save $19", desc: "The complete care and wellness bundle." },
+            { name: "Ascend + Pride Dopp Kit Bundle", price: "$90", save: "Save $19", desc: "The complete care and wellness bundle." },
             { name: "Ascend + Sharps Bundle", price: "$149", save: "Save $8", desc: "For those managing care routines alongside wellness." },
           ].map((b) => (
             <div key={b.name} className="p-5 rounded-xl bg-card border border-border text-left">
