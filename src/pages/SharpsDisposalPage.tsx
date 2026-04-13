@@ -45,7 +45,7 @@ const products = [
     dimensions: "10 × 10 × 15 cm",
     reviews: 18,
     rating: 5,
-    images: [sharpsContainer],
+    images: [sharpsContainer, container2],
     url: "https://www.stealthbrosco.com/collections/sharps-disposal",
     options: ["1 Container", "2 Containers"],
     subFrequencies: [
