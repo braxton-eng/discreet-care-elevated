@@ -84,6 +84,79 @@ const RELATED_PRODUCTS_QUERY = `
     }
   }
 `;
+/** Parses a raw Shopify description into a short intro + bullet highlights */
+function parseDescription(raw: string): { intro: string; highlights: string[] } {
+  // Try to split on common delimiters used in Shopify descriptions
+  const sentences = raw
+    .replace(/([.!?])\s+/g, "$1|||")
+    .split("|||")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  // Extract bullet-like items (lines with colons often indicate features)
+  const colonLines: string[] = [];
+  const normalLines: string[] = [];
+
+  for (const s of sentences) {
+    // Detect "Label: description" pattern or emoji-prefixed lines
+    if (/^[^.]{3,30}:/.test(s) || /^[✅🌈💼🎀🤎🧡🌿📘📙📕💖]/.test(s)) {
+      colonLines.push(s.replace(/^[✅🌈💼🎀🤎🧡🌿📘📙📕💖]\s*/, ""));
+    } else {
+      normalLines.push(s);
+    }
+  }
+
+  // First 2 normal sentences become the intro
+  const intro = normalLines.slice(0, 2).join(" ") || sentences.slice(0, 2).join(" ");
+
+  // Remaining become highlights (max 6)
+  let highlights = colonLines.length > 0 ? colonLines.slice(0, 6) : normalLines.slice(2, 6);
+  // Trim long highlights
+  highlights = highlights.map((h) => (h.length > 120 ? h.slice(0, 117) + "..." : h));
+
+  return { intro, highlights };
+}
+
+const ProductDescription = ({ description }: { description: string }) => {
+  const [expanded, setExpanded] = useState(false);
+  const { intro, highlights } = parseDescription(description);
+
+  return (
+    <div className="mb-8 space-y-4">
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        {intro}
+      </p>
+
+      {highlights.length > 0 && (
+        <div className="space-y-2.5">
+          {highlights.map((h, i) => (
+            <div key={i} className="flex items-start gap-2.5">
+              <CheckCircle className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+              <span className="text-sm text-foreground/80 leading-relaxed">{h}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {description.length > 300 && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="text-xs font-sans uppercase tracking-widest text-accent hover:text-accent/80 transition-colors"
+        >
+          {expanded ? "Show Less" : "Read Full Description"}
+        </button>
+      )}
+
+      {expanded && (
+        <div className="pt-2 border-t border-border">
+          <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+            {description}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const ProductDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -229,11 +302,7 @@ const ProductDetailPage = () => {
 
               {/* Description */}
               {product.description && (
-                <div className="mb-8">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
+                <ProductDescription description={product.description} />
               )}
 
               {/* Variant Selection */}
