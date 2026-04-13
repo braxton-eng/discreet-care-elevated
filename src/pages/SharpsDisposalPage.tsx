@@ -222,8 +222,8 @@ const SharpsDisposalPage = () => (
             Disposal that belongs in your space.
           </h1>
           <p className="text-sm text-primary-foreground/75 leading-relaxed mb-6">
-            No biohazard symbols. No clinical look. Just clean, modern
-            containers designed for the way you actually live.
+            No clinical look. Just clean, modern containers designed for the way
+            you actually live.
           </p>
           <div className="flex flex-wrap gap-4 text-[11px] font-sans font-medium uppercase tracking-wider text-primary-foreground/60">
             <span className="flex items-center gap-1.5">
