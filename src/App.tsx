@@ -30,6 +30,7 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/shop" element={<ShopPage />} />
+          <Route path="/shop/all" element={<AllProductsPage />} />
           <Route path="/shop/:category" element={<ShopPage />} />
           <Route path="/shop/product/:slug" element={<ProductPage />} />
           <Route path="/ascend" element={<AscendPage />} />
