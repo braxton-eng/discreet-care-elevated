@@ -9,10 +9,10 @@ import catDuffles from "@/assets/category-duffles.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
 
 const categories = [
-  { title: "Personal Care Storage", desc: "Dopp kits designed for discretion, privacy, and your daily routine.", img: catMedical, path: "/shop/all" },
+  { title: "Personal Care Storage", desc: "Dopp kits designed for discretion, privacy, and your daily routine.", img: catMedical, path: "/shop/medical-storage" },
   { title: "Sharps Disposal", desc: "Safe, sleek containers that belong in your space.", img: catSharps, path: "/shop/sharps-disposal" },
   { title: "Bundles", desc: "Complete care kits curated for value and convenience.", img: catBundles, path: "/shop/bundles" },
-  { title: "Duffles & Backpacks", desc: "Travel-ready bags with built-in private compartments.", img: catDuffles, path: "/shop/all" },
+  { title: "Duffles & Backpacks", desc: "Travel-ready bags with built-in private compartments.", img: catDuffles, path: "/shop/duffles-backpacks" },
 ];
 
 const bestSellers = [
