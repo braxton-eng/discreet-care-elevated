@@ -229,11 +229,7 @@ const ProductDetailPage = () => {
 
               {/* Description */}
               {product.description && (
-                <div className="mb-8">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
+                <ProductDescription description={product.description} />
               )}
 
               {/* Variant Selection */}
