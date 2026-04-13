@@ -63,7 +63,7 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
   const [selectedOption, setSelectedOption] = useState(0);
   const isSubscribe = purchaseType === "subscribe";
   const displayPrice = isSubscribe ? p.subPrice : p.oneTimePrice;
-  const currentImage = p.images[selectedOption] ?? p.images[0];
+  
 
   return (
     <div
