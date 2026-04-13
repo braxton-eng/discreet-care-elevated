@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ShoppingBag, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CartDrawer } from "@/components/CartDrawer";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -98,12 +99,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="relative h-9 w-9">
-              <ShoppingBag className="h-[18px] w-[18px]" />
-              <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-accent text-accent-foreground text-[10px] flex items-center justify-center font-sans font-bold">
-                0
-              </span>
-            </Button>
+            <CartDrawer />
             <Button
               variant="ghost"
               size="icon"
