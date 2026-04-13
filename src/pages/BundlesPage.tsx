@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ShoppingCart, Loader2, Package, CheckCircle, ArrowRight } from "lucide-react";
+import { ShoppingCart, Loader2, Package, CheckCircle, ArrowRight, ShieldCheck, Truck, Star } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { storefrontApiRequest } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import type { ShopifyProduct } from "@/lib/shopify";
+import catBundles from "@/assets/category-bundles.jpg";
 
 const BUNDLES_QUERY = `
   query GetBundles($first: Int!, $query: String!) {
@@ -189,19 +190,40 @@ const BundlesPage = () => {
   return (
     <div className="pt-28 md:pt-32">
       {/* Hero */}
-      <section className="pb-12 md:pb-16">
-        <div className="container-wide section-padding">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+      <section className="relative py-20 md:py-28">
+        <div className="absolute inset-0">
+          <img
+            src={catBundles}
+            alt="Stealth Bros Bundles Collection"
+            className="w-full h-full object-cover object-center"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
+        </div>
+        <div className="relative container-wide section-padding">
+          <div className="max-w-lg">
+            <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-3 block">
               Curated Collections
             </span>
-            <h1 className="font-serif text-3xl md:text-5xl font-bold text-foreground mt-3 mb-5">
-              Bundles Built for Your Routine
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-primary-foreground leading-[1.12] mb-4">
+              Bundles built for your routine.
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Why buy one when you can have it all? Our bundles pair your favorite Stealth Bros essentials together, 
-              giving you a complete system for storage, organization, and safe disposal at a value you'll feel good about.
+            <p className="text-sm text-primary-foreground/75 leading-relaxed mb-6">
+              Why buy one when you can have it all? Our bundles pair your favorite
+              Stealth Bros essentials together — complete systems at a better value.
             </p>
+            <div className="flex flex-wrap gap-4 text-[11px] font-sans font-medium uppercase tracking-wider text-primary-foreground/60">
+              <span className="flex items-center gap-1.5">
+                <Package className="h-3.5 w-3.5" /> Save More Together
+              </span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="h-3.5 w-3.5" /> Complete Systems
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Truck className="h-3.5 w-3.5" /> Free Shipping Over $100
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -233,17 +255,10 @@ const BundlesPage = () => {
       {/* Bundle Products */}
       <section className="pb-16 md:pb-24">
         <div className="container-wide section-padding">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
-              Shop All Bundles
-            </h2>
-            <Link
-              to="/shop/all"
-              className="text-xs font-sans uppercase tracking-widest text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1"
-            >
-              View All Products <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
+          <SectionHeader
+            eyebrow="Shop All Bundles"
+            title="Find the perfect bundle for your routine."
+          />
 
           {isLoading ? (
             <div className="flex items-center justify-center py-20">
