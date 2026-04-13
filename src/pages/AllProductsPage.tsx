@@ -194,8 +194,8 @@ const AllProductsPage = () => {
     staleTime: 5 * 60 * 1000,
   });
 
-  const categorized = useMemo(() => {
-    if (!products) return {};
+  const categorized = useMemo((): Record<Category, any[]> => {
+    if (!products) return { all: [], "jr-dopp": [], "original-dopp": [], sharps: [], "duffles-backpacks": [], bundles: [], education: [], other: [] };
     const map: Record<Category, ShopifyProduct["node"][]> = {
       all: [],
       "jr-dopp": [],
