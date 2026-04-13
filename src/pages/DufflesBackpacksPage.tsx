@@ -10,7 +10,7 @@ import catDuffles from "@/assets/category-duffles.jpg";
 const products = [
   {
     id: "pride-duffle",
-    name: "Pride 🏳️‍🌈 Duffle",
+    name: "Limited Edition Pride Duffle",
     tagline: "Travel bold. Travel proud.",
     desc: "Spacious enough for weekend trips, gym days, or daily carry. Reinforced handles and an adjustable shoulder strap for effortless transport. Vibrant rainbow accents that celebrate who you are.",
     dimensions: "Large duffle",
