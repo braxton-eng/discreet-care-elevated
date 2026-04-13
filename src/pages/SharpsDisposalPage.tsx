@@ -185,16 +185,17 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
         {/* Variant options */}
         <div className="flex flex-wrap gap-2 mb-3">
           {p.options.map((opt, idx) => (
-            <span
+            <button
               key={opt}
+              onClick={() => setSelectedOption(idx)}
               className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer ${
-                idx === 0
+                idx === selectedOption
                   ? "border-accent bg-accent/10 text-accent"
                   : "border-border text-muted-foreground hover:border-accent/50"
               }`}
             >
               {opt}
-            </span>
+            </button>
           ))}
         </div>
 
