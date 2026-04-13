@@ -38,6 +38,8 @@ const AppContent = () => {
           <Route path="/shop/bundles" element={<BundlesPage />} />
           <Route path="/shop/:category" element={<ShopPage />} />
           <Route path="/shop/product/:slug" element={<ProductDetailPage />} />
+          <Route path="/shop/medical-storage" element={<PersonalCareStoragePage />} />
+          <Route path="/shop/duffles-backpacks" element={<DufflesBackpacksPage />} />
           <Route path="/ascend" element={<AscendPage />} />
           <Route path="/shop/sharps-disposal" element={<SharpsDisposalPage />} />
           <Route path="/about" element={<AboutPage />} />
