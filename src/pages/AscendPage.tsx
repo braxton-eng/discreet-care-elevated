@@ -7,7 +7,7 @@ import catBundles from "@/assets/category-bundles.jpg";
 const AscendPage = () => (
   <div className="pt-28 md:pt-32">
     {/* Hero */}
-    <section className="relative py-20 md:py-32">
+    <section className="relative py-28 md:py-44 lg:py-52">
       <div className="absolute inset-0">
         <img src={ascendHero} alt="Stealth Ascend" className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent" />
