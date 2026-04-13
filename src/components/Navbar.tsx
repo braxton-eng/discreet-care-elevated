@@ -114,18 +114,7 @@ const Navbar = () => {
                 </Link>
                 {item.children && (
                   <div className="pl-4 space-y-0.5 pb-1">
-                    {item.children.map((child) =>
-                      child.external ? (
-                        <a
-                          key={child.path}
-                          href={child.path}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block py-2 text-sm text-muted-foreground"
-                        >
-                          {child.label}
-                        </a>
-                      ) : (
+                    {item.children.map((child) => (
                         <Link
                           key={child.path}
                           to={child.path}
@@ -133,8 +122,7 @@ const Navbar = () => {
                         >
                           {child.label}
                         </Link>
-                      )
-                    )}
+                      ))}
                   </div>
                 )}
               </div>
