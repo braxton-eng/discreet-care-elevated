@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import { ShoppingCart, Loader2, Filter } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -105,7 +106,9 @@ const ProductCard = ({ product }: { product: ShopifyProduct["node"] }) => {
   const price = product.priceRange.minVariantPrice;
   const isGiftCard = product.title.toLowerCase().includes("gift card");
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (!firstVariant || !firstVariant.availableForSale) return;
     setAdding(true);
     try {
@@ -126,10 +129,13 @@ const ProductCard = ({ product }: { product: ShopifyProduct["node"] }) => {
   };
 
   return (
-    <div className="group relative bg-card border border-border/40 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+    <Link
+      to={`/shop/product/${product.handle}`}
+      className="group relative bg-background rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 block"
+    >
       {/* Image */}
       <div
-        className="aspect-square overflow-hidden bg-secondary/20 relative"
+        className="aspect-square overflow-hidden bg-background relative"
         onMouseEnter={() => images.length > 1 && setHoveredImg(1)}
         onMouseLeave={() => setHoveredImg(0)}
       >
@@ -138,7 +144,7 @@ const ProductCard = ({ product }: { product: ShopifyProduct["node"] }) => {
             src={images[hoveredImg].node.url}
             alt={images[hoveredImg].node.altText || product.title}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
@@ -178,7 +184,7 @@ const ProductCard = ({ product }: { product: ShopifyProduct["node"] }) => {
           )}
         </Button>
       </div>
-    </div>
+    </Link>
   );
 };
 
