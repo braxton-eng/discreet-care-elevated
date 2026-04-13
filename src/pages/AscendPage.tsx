@@ -160,7 +160,7 @@ const AscendPage = () => (
           ].map((b) => (
             <div key={b.name} className="p-5 rounded-xl bg-card border border-border text-left">
               <span className="text-[11px] font-sans font-semibold text-accent">{b.save}</span>
-              <h4 className="font-serif text-base font-semibold mt-0.5 mb-1.5">{b.name}</h4>
+              <h4 className="font-serif text-sm font-semibold mt-0.5 mb-1.5">{b.name}</h4>
               <p className="text-xs text-muted-foreground mb-4">{b.desc}</p>
               <div className="flex justify-between items-center">
                 <span className="font-sans font-semibold text-lg">{b.price}</span>
