@@ -44,7 +44,7 @@ const Navbar = () => {
       {/* Top bar */}
       <div className="bg-primary text-primary-foreground text-center py-1.5">
         <p className="text-[11px] font-sans tracking-wide">
-          Free shipping on orders over $100 · <Link to="/shop" className="underline underline-offset-2 hover:text-accent transition-colors">Shop now</Link>
+          Free shipping on orders over $100 · <Link to="/shop/medical-storage" className="underline underline-offset-2 hover:text-accent transition-colors">Shop now</Link>
         </p>
       </div>
 
