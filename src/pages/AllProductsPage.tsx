@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { ShoppingCart, Loader2, Filter } from "lucide-react";
+import { ShoppingCart, Loader2, Filter, ShieldCheck, Truck, Package } from "lucide-react";
+import catMedical from "@/assets/category-medical-storage.jpg";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
