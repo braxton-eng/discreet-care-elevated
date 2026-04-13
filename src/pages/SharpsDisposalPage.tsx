@@ -59,8 +59,10 @@ type PurchaseType = "one-time" | "subscribe";
 const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean }) => {
   const [purchaseType, setPurchaseType] = useState<PurchaseType>("one-time");
   const [frequency, setFrequency] = useState(p.subFrequencies[0]);
+  const [selectedOption, setSelectedOption] = useState(0);
   const isSubscribe = purchaseType === "subscribe";
   const displayPrice = isSubscribe ? p.subPrice : p.oneTimePrice;
+  const currentImage = p.images[selectedOption] ?? p.images[0];
 
   return (
     <div
@@ -68,16 +70,25 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
         reversed ? "lg:[direction:rtl]" : ""
       }`}
     >
-      {/* Image */}
-      <div className="aspect-square rounded-xl overflow-hidden bg-secondary lg:[direction:ltr]">
-        <img
-          src={p.image}
-          alt={p.name}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-          width={800}
-          height={800}
-        />
+      {/* Image with slide transition */}
+      <div className="aspect-square rounded-xl overflow-hidden bg-secondary lg:[direction:ltr] relative">
+        {p.images.map((img, idx) => (
+          <img
+            key={idx}
+            src={img}
+            alt={`${p.name} — ${p.options[idx] ?? p.name}`}
+            loading="lazy"
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out ${
+              idx === selectedOption
+                ? "opacity-100 translate-x-0"
+                : idx < selectedOption
+                ? "opacity-0 -translate-x-full"
+                : "opacity-0 translate-x-full"
+            }`}
+            width={800}
+            height={800}
+          />
+        ))}
       </div>
 
       {/* Details */}
