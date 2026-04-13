@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ShieldCheck, BookOpen, ArrowRight } from "lucide-react";
 import ascendHero from "@/assets/ascend-hero.jpg";
-import catBundles from "@/assets/category-bundles.jpg";
+import catBundles from "@/assets/ascend-kit.jpg";
 
 const AscendPage = () => (
   <div className="pt-28 md:pt-32">
@@ -74,9 +74,9 @@ const AscendPage = () => (
               ))}
             </div>
 
-            <p className="text-xl font-sans font-semibold text-foreground mb-5">$129.00</p>
+            <p className="text-xl font-sans font-semibold text-foreground mb-5">$90.00</p>
             <Button variant="hero" size="lg" className="w-full sm:w-auto">
-              Add to Cart — $129.00
+              Add to Cart — $90.00
             </Button>
           </div>
         </div>
@@ -143,7 +143,7 @@ const AscendPage = () => (
         <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto mb-6">
           Every Stealth Ascend kit comes with a comprehensive digital guide covering techniques, safety, maintenance, and FAQs. Knowledge is power.
         </p>
-        <Button variant="premium" size="lg">Download the Guide</Button>
+        <Button variant="premium" size="lg">Grab Your Stealth Ascend Now</Button>
       </div>
     </section>
 
