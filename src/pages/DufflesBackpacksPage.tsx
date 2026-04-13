@@ -36,6 +36,59 @@ const products = [
       "Built for daily use, travel, and medical essentials",
     ],
   },
+  {
+    id: "gold-duffle",
+    name: "Gold Limited Edition Duffle",
+    tagline: "Bold. Luxurious. Limited.",
+    desc: "Experience the ultimate in style, functionality, and organization. The Gold Duffle is spacious, durable, and effortlessly stylish — your go-to for organizing larger supplies or travel essentials. High-quality craftsmanship ensures your items stay protected and accessible wherever life takes you.",
+    dimensions: "Large duffle",
+    reviews: 15,
+    rating: 5,
+    images: [
+      "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/Artboard_194.jpg?v=1733857854",
+      "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/IMG_9406_copy.jpg?v=1736564437",
+      "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/IMG_9395_copy.jpg?v=1736564437",
+      "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/IMG_9472_copy.jpg?v=1736564437",
+    ],
+    shopifyProductId: "gid://shopify/Product/8840310391023",
+    handle: "bundle-gold-edition",
+    variants: [
+      { label: "Gold Duffle Bundle", variantId: "gid://shopify/ProductVariant/46114666873071", price: "95.00" },
+    ],
+    highlights: [
+      "Includes Gold Duffle, Jr. Dopp 2.0 Insulated & Stealth Shuttle",
+      "Golden elegance with a bold, luxurious look",
+      "Insulated compartment keeps items at temperature",
+      "Durable materials built for daily use and travel",
+      "Limited edition — once it's gone, it's gone",
+    ],
+  },
+  {
+    id: "pride-duffle",
+    name: "Pride 🏳️‍🌈 Duffle Edition",
+    tagline: "Travel bold. Travel proud.",
+    desc: "Your all-in-one system for staying organized, prepared, and unapologetically you. Spacious enough for weekend trips, gym days, or daily carry with reinforced handles and an adjustable shoulder strap for effortless transport.",
+    dimensions: "Large duffle",
+    reviews: 32,
+    rating: 5,
+    images: [
+      "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/Artboard_193.jpg?v=1730647867",
+      "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/IMG_9883_copy_2.jpg?v=1730647868",
+      "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/IMG_9879_copy_2.jpg?v=1730647869",
+    ],
+    shopifyProductId: "gid://shopify/Product/8558412792047",
+    handle: "pride-bundle",
+    variants: [
+      { label: "Pride Duffle Bundle", variantId: "gid://shopify/ProductVariant/45222587695343", price: "120.00" },
+    ],
+    highlights: [
+      "Includes Pride Duffle, Original Dopp, Jr Dopp, Container & Shuttle",
+      "TSA-friendly design for hassle-free travel",
+      "Vibrant rainbow accents that celebrate who you are",
+      "Premium, durable materials built to last",
+      "Complete system — everything you need in one set",
+    ],
+  },
 ];
 
 const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean }) => {
