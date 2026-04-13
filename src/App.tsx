@@ -16,8 +16,35 @@ import PartnershipsPage from "@/pages/PartnershipsPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ContactPage from "@/pages/ContactPage";
 import NotFound from "@/pages/NotFound";
+import { useCartSync } from "@/hooks/useCartSync";
 
 const queryClient = new QueryClient();
+
+const AppContent = () => {
+  useCartSync();
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/shop/:category" element={<ShopPage />} />
+          <Route path="/shop/product/:slug" element={<ProductPage />} />
+          <Route path="/ascend" element={<AscendPage />} />
+          <Route path="/shop/sharps-disposal" element={<SharpsDisposalPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/speaker" element={<SpeakerPage />} />
+          <Route path="/partnerships" element={<PartnershipsPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -25,24 +52,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/shop/:category" element={<ShopPage />} />
-            <Route path="/shop/product/:slug" element={<ProductPage />} />
-            <Route path="/ascend" element={<AscendPage />} />
-            <Route path="/shop/sharps-disposal" element={<SharpsDisposalPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/speaker" element={<SpeakerPage />} />
-            <Route path="/partnerships" element={<PartnershipsPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
