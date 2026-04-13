@@ -164,7 +164,7 @@ const AscendPage = () => (
               <p className="text-xs text-muted-foreground mb-4">{b.desc}</p>
               <div className="flex justify-between items-center">
                 <span className="font-sans font-semibold text-lg">{b.price}</span>
-                <Button asChild variant="premium" size="sm"><a href="https://www.stealthbrosco.com/products/bundle-%E4%B8%80stealth-ascend%E2%84%A2-original-dopp-pride" target="_blank" rel="noopener noreferrer">Add to Cart</a></Button>
+                <Button asChild variant="premium" size="sm"><a href="https://www.stealthbrosco.com/products/bundle-grey-%F0%9F%8F%B3%EF%B8%8F-%EF%B8%8F-edition" target="_blank" rel="noopener noreferrer">Add to Cart</a></Button>
               </div>
             </div>
           ))}
