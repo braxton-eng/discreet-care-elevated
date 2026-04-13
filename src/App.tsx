@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import ShopPage from "@/pages/ShopPage";
+import AllProductsPage from "@/pages/AllProductsPage";
 import ProductPage from "@/pages/ProductPage";
 import AscendPage from "@/pages/AscendPage";
 import SharpsDisposalPage from "@/pages/SharpsDisposalPage";
