@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import ShopPage from "@/pages/ShopPage";
 import AllProductsPage from "@/pages/AllProductsPage";
+import BundlesPage from "@/pages/BundlesPage";
 import ProductPage from "@/pages/ProductPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import AscendPage from "@/pages/AscendPage";
@@ -32,6 +33,7 @@ const AppContent = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/shop/all" element={<AllProductsPage />} />
+          <Route path="/shop/bundles" element={<BundlesPage />} />
           <Route path="/shop/:category" element={<ShopPage />} />
           <Route path="/shop/product/:slug" element={<ProductDetailPage />} />
           <Route path="/ascend" element={<AscendPage />} />
