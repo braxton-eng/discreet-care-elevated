@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Star, Truck, Loader2, Briefcase } from "lucide-react";
 import { toast } from "sonner";
@@ -216,6 +217,11 @@ const DufflesBackpacksPage = () => (
     {/* Products */}
     <section className="py-14 md:py-20 bg-background">
       <div className="container-wide section-padding">
+        <SectionHeader
+          eyebrow="Shop the Collection"
+          title="Premium bags with built-in private storage."
+          description="Designed for people who need discretion without sacrificing style — our backpacks and duffles feature integrated compartments for medical essentials, wellness supplies, and personal care."
+        />
         <div className="space-y-16 md:space-y-24">
           {products.map((p, i) => (
             <ProductCard key={p.id} p={p} reversed={i % 2 === 1} />

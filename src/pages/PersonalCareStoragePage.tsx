@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Star, Truck, Loader2, Heart } from "lucide-react";
 import { toast } from "sonner";
@@ -250,6 +251,11 @@ const PersonalCareStoragePage = () => (
     {/* Products */}
     <section className="py-14 md:py-20 bg-background">
       <div className="container-wide section-padding">
+        <SectionHeader
+          eyebrow="Shop the Collection"
+          title="Jr Dopp Kits — organized, discreet, and built for you."
+          description="Each Jr Dopp is designed with elastic bands, mesh pockets, and compartments to hold syringes, vials, pens, and personal essentials in one compact, travel-ready kit."
+        />
         <div className="space-y-16 md:space-y-24">
           {products.map((p, i) => (
             <ProductCard key={p.id} p={p} reversed={i % 2 === 1} />
