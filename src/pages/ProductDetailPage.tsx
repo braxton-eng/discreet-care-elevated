@@ -158,7 +158,7 @@ const ProductDescription = ({ description }: { description: string }) => {
   );
 };
 
-
+const ProductDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const addItem = useCartStore((s) => s.addItem);
   const isCartLoading = useCartStore((s) => s.isLoading);
