@@ -22,7 +22,7 @@ const AscendPage = () => (
             Designed for those seeking a safe, empowering, and informed approach to personal wellness and intimacy.
           </p>
           <Button asChild variant="hero" size="lg">
-            <a href="#starter-kit">Explore the Kit <ArrowRight className="ml-2 h-4 w-4" /></a>
+            <a href="https://www.stealthbrosco.com/products/%E4%B8%80stealth-ascend%E2%84%A2-bottom-growth-enhancement-starter-kit" target="_blank" rel="noopener noreferrer">Explore the Kit <ArrowRight className="ml-2 h-4 w-4" /></a>
           </Button>
         </div>
       </div>
