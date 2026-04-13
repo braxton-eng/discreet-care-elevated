@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import ShopPage from "@/pages/ShopPage";
 import AllProductsPage from "@/pages/AllProductsPage";
+import BundlesPage from "@/pages/BundlesPage";
 import ProductPage from "@/pages/ProductPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import AscendPage from "@/pages/AscendPage";
