@@ -36,7 +36,7 @@ const AscendPage = () => (
           Your journey. Your pace. Your power.
         </h2>
         <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-          Stealth Ascend was born from a simple truth: everyone deserves access to tools that support confidence, connection, and self-discovery—without judgment, stigma, or confusion. This is wellness on your terms.
+          Stealth Ascend was born from a simple truth: AFAB, Trans & Non Binary Folks deserves  to tools that support confidence, connection, and self-discovery without judgment, stigma, or confusion. This is wellness on your terms.
         </p>
       </div>
     </section>
