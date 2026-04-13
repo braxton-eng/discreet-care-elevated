@@ -7,7 +7,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowRight, ShieldCheck, Star, Truck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Star, Truck, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import { useCartStore } from "@/stores/cartStore";
+import type { ShopifyProduct } from "@/lib/shopify";
 import sharpsHero from "@/assets/sharps-hero.jpg";
 import shuttle1 from "@/assets/shuttle-1.png";
 import shuttle3 from "@/assets/shuttle-3.png";
@@ -15,20 +18,25 @@ import shuttle5 from "@/assets/shuttle-5.png";
 import container1 from "@/assets/container-1.jpg";
 import container2 from "@/assets/container-2.jpg";
 
+// Map local products to Shopify variant GIDs
 const products = [
   {
     id: "shuttle",
     name: "Stealth Sharp Shuttle",
     tagline: "Compact. Portable. Discreet.",
     desc: "Designed to hold your sharps waste on the go. Pairs perfectly with our Jr/Dopp Kit for discreet travel or at-home storage. Holds approx. 20 needle tips per shuttle — one-time use with a lockable seal.",
-    oneTimePrice: "$5.00",
-    subPrice: "$4.25",
     dimensions: "16 × 4.5 cm",
     reviews: 27,
     rating: 5,
     images: [shuttle1, shuttle3, shuttle5],
-    url: "https://www.stealthbrosco.com/products/stealth-sharp-shuttles",
-    options: ["1 Shuttle", "3 Shuttles", "5 Shuttles"],
+    shopifyProductId: "gid://shopify/Product/1954616901702",
+    handle: "stealth-sharp-shuttles",
+    variants: [
+      { label: "1 Shuttle", variantId: "gid://shopify/ProductVariant/19895690952774", price: "5.00" },
+      { label: "3 Shuttles", variantId: "gid://shopify/ProductVariant/19895725260870", price: "10.00" },
+      { label: "5 Shuttles", variantId: "gid://shopify/ProductVariant/19895734665286", price: "15.00" },
+    ],
+    subDiscount: 0.15,
     subFrequencies: [
       "Every 2 months — 15% off",
       "Every 3 months — 15% off",
@@ -40,14 +48,17 @@ const products = [
     name: "Stealth Sharps Container",
     tagline: "Countertop-worthy disposal.",
     desc: "A sharps container reimagined for your dresser, bathroom counter, or nightstand. Luxury meets function — because disposal should never feel clinical. Lockable lid with clear directions on the package.",
-    oneTimePrice: "$10.00",
-    subPrice: "$8.50",
     dimensions: "10 × 10 × 15 cm",
     reviews: 18,
     rating: 5,
     images: [container1, container2],
-    url: "https://www.stealthbrosco.com/products/stealth-sharps-container",
-    options: ["1 Container", "2 Containers"],
+    shopifyProductId: "gid://shopify/Product/6607989735501",
+    handle: "stealth-sharps-container",
+    variants: [
+      { label: "1 Container", variantId: "gid://shopify/ProductVariant/42572052988143", price: "10.00" },
+      { label: "2 Containers", variantId: "gid://shopify/ProductVariant/42572053020911", price: "18.00" },
+    ],
+    subDiscount: 0.15,
     subFrequencies: [
       "Every 3 months — 15% off",
       "Every 6 months — 15% off",
@@ -61,9 +72,45 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
   const [purchaseType, setPurchaseType] = useState<PurchaseType>("one-time");
   const [frequency, setFrequency] = useState(p.subFrequencies[0]);
   const [selectedOption, setSelectedOption] = useState(0);
+  const addItem = useCartStore(state => state.addItem);
+  const isLoading = useCartStore(state => state.isLoading);
   const isSubscribe = purchaseType === "subscribe";
-  const displayPrice = isSubscribe ? p.subPrice : p.oneTimePrice;
-  
+
+  const currentVariant = p.variants[selectedOption];
+  const basePrice = parseFloat(currentVariant.price);
+  const displayPrice = isSubscribe
+    ? (basePrice * (1 - p.subDiscount)).toFixed(2)
+    : basePrice.toFixed(2);
+
+  const handleAddToCart = async () => {
+    // Build a minimal ShopifyProduct shape for the cart store
+    const shopifyProduct: ShopifyProduct = {
+      node: {
+        id: p.shopifyProductId,
+        title: p.name,
+        description: p.desc,
+        handle: p.handle,
+        priceRange: { minVariantPrice: { amount: currentVariant.price, currencyCode: "USD" } },
+        images: { edges: [{ node: { url: p.images[selectedOption] || p.images[0], altText: p.name } }] },
+        variants: { edges: [] },
+        options: [],
+      },
+    };
+
+    await addItem({
+      product: shopifyProduct,
+      variantId: currentVariant.variantId,
+      variantTitle: currentVariant.label,
+      price: { amount: currentVariant.price, currencyCode: "USD" },
+      quantity: 1,
+      selectedOptions: [{ name: "QTY", value: currentVariant.label }],
+    });
+
+    toast.success(`${p.name} added to cart`, {
+      description: currentVariant.label,
+      position: "top-center",
+    });
+  };
 
   return (
     <div
@@ -77,7 +124,7 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
           <img
             key={idx}
             src={img}
-            alt={`${p.name} — ${p.options[idx] ?? p.name}`}
+            alt={`${p.name} — ${p.variants[idx]?.label ?? p.name}`}
             loading="lazy"
             className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out ${
               idx === selectedOption
@@ -116,11 +163,11 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
         {/* Price */}
         <div className="flex items-baseline gap-2.5 mb-5">
           <span className="font-sans text-2xl font-bold text-foreground">
-            {displayPrice}
+            ${displayPrice}
           </span>
           {isSubscribe && (
             <span className="text-sm text-muted-foreground line-through">
-              {p.oneTimePrice}
+              ${basePrice.toFixed(2)}
             </span>
           )}
         </div>
@@ -138,7 +185,7 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
             />
             <div className="flex-1">
               <span className="text-sm font-medium text-foreground">One-time purchase</span>
-              <span className="text-xs text-muted-foreground ml-2">{p.oneTimePrice}</span>
+              <span className="text-xs text-muted-foreground ml-2">${basePrice.toFixed(2)}</span>
             </div>
           </label>
 
@@ -158,7 +205,9 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
                   15% off
                 </span>
               </div>
-              <span className="text-xs text-muted-foreground">{p.subPrice}</span>
+              <span className="text-xs text-muted-foreground">
+                ${(basePrice * (1 - p.subDiscount)).toFixed(2)}
+              </span>
             </div>
           </label>
 
@@ -185,9 +234,9 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
 
         {/* Variant options */}
         <div className="flex flex-wrap gap-2 mb-3">
-          {p.options.map((opt, idx) => (
+          {p.variants.map((variant, idx) => (
             <button
-              key={opt}
+              key={variant.variantId}
               onClick={() => setSelectedOption(idx)}
               className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors cursor-pointer ${
                 idx === selectedOption
@@ -195,7 +244,7 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
                   : "border-border text-muted-foreground hover:border-accent/50"
               }`}
             >
-              {opt}
+              {variant.label}
             </button>
           ))}
         </div>
@@ -204,10 +253,20 @@ const ProductCard = ({ p, reversed }: { p: typeof products[0]; reversed: boolean
           Dimensions: {p.dimensions}
         </p>
 
-        <Button asChild variant="hero" size="lg" className="w-full sm:w-auto">
-          <a href={p.url} target="_blank" rel="noopener noreferrer">
-            Buy Now <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
+        <Button
+          variant="hero"
+          size="lg"
+          className="w-full sm:w-auto"
+          onClick={handleAddToCart}
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <>
+              Add to Cart <ArrowRight className="ml-2 h-4 w-4" />
+            </>
+          )}
         </Button>
       </div>
     </div>
