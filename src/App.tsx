@@ -9,6 +9,7 @@ import HomePage from "@/pages/HomePage";
 import ShopPage from "@/pages/ShopPage";
 import ProductPage from "@/pages/ProductPage";
 import AscendPage from "@/pages/AscendPage";
+import SharpsDisposalPage from "@/pages/SharpsDisposalPage";
 import AboutPage from "@/pages/AboutPage";
 import SpeakerPage from "@/pages/SpeakerPage";
 import PartnershipsPage from "@/pages/PartnershipsPage";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/shop/:category" element={<ShopPage />} />
             <Route path="/shop/product/:slug" element={<ProductPage />} />
             <Route path="/ascend" element={<AscendPage />} />
+            <Route path="/shop/sharps-disposal" element={<SharpsDisposalPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/speaker" element={<SpeakerPage />} />
             <Route path="/partnerships" element={<PartnershipsPage />} />
