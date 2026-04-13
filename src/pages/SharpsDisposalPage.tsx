@@ -27,7 +27,7 @@ const products = [
     reviews: 27,
     rating: 5,
     images: [shuttle1, shuttle3, shuttle5],
-    url: "https://www.stealthbrosco.com/cart/31442498854000:1",
+    url: "https://www.stealthbrosco.com/products/stealth-sharp-shuttles",
     options: ["1 Shuttle", "3 Shuttles", "5 Shuttles"],
     subFrequencies: [
       "Every 2 months — 15% off",
@@ -46,7 +46,7 @@ const products = [
     reviews: 18,
     rating: 5,
     images: [container1, container2],
-    url: "https://www.stealthbrosco.com/cart/39570587656303:1",
+    url: "https://www.stealthbrosco.com/products/stealth-sharps-container",
     options: ["1 Container", "2 Containers"],
     subFrequencies: [
       "Every 3 months — 15% off",
