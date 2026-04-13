@@ -54,7 +54,7 @@ const AscendPage = () => (
               Everything you need to begin.
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              The Stealth Ascend Starter Kit is thoughtfully curated to provide a complete, safe, and informed starting point for your personal wellness journey.
+              The Stealth Ascend Starter Kit is thoughtfully curated to provide a complete, safe, and informed starting point for your personal wellness journey. By supporting natural growth and helping ease dysphoria, it empowers you to feel more at home in your body, bringing a quiet confidence that extends well beyond the bedroom and into every part of your day.
             </p>
 
             <h3 className="font-sans text-[11px] font-semibold uppercase tracking-wider mb-3">What's Included</h3>
