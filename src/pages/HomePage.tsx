@@ -4,6 +4,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { ArrowRight, Shield, Briefcase, Heart, Star, Package, Truck } from "lucide-react";
 import heroImg from "@/assets/hero-product.png";
 import catMedical from "@/assets/category-medical-storage.jpg";
+import catPersonalCare from "@/assets/category-personal-care.jpg";
 import catSharps from "@/assets/category-sharps.jpg";
 import catDuffles from "@/assets/category-duffles.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
