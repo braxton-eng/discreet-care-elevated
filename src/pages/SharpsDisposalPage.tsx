@@ -368,11 +368,7 @@ const SharpsDisposalPage = () => (
           should feel as intentional as the rest of your space.
         </p>
         <Button asChild variant="hero" size="lg">
-          <a
-            href="https://www.stealthbrosco.com/collections/sharps-disposal"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             Shop All Sharps <ArrowRight className="ml-2 h-4 w-4" />
           </a>
         </Button>
