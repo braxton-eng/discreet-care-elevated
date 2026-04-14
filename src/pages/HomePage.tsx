@@ -4,12 +4,13 @@ import SectionHeader from "@/components/SectionHeader";
 import { ArrowRight, Shield, Briefcase, Heart, Star, Package, Truck } from "lucide-react";
 import heroImg from "@/assets/hero-product.png";
 import catMedical from "@/assets/category-medical-storage.jpg";
+import catPersonalCare from "@/assets/category-personal-care.jpg";
 import catSharps from "@/assets/category-sharps.jpg";
 import catDuffles from "@/assets/category-duffles.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
 
 const categories = [
-  { title: "Personal Care Storage", desc: "Dopp kits designed for discretion, privacy, and your daily routine.", img: catMedical, path: "/shop/all" },
+  { title: "Personal Care Storage", desc: "Dopp kits designed for discretion, privacy, and your daily routine.", img: catPersonalCare, path: "/shop/all" },
   { title: "Sharps Disposal", desc: "Safe, sleek containers that belong in your space.", img: catSharps, path: "/shop/sharps-disposal" },
   { title: "Bundles", desc: "Complete care kits curated for value and convenience.", img: catBundles, path: "/shop/bundles" },
   { title: "Duffles & Backpacks", desc: "Travel-ready bags with built-in private compartments.", img: catDuffles, path: "/shop/duffles-backpacks" },
