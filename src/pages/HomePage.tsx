@@ -103,7 +103,7 @@ const HomePage = () => (
         <SectionHeader
           eyebrow="The Problem"
           title="Your routine deserves better."
-          description="For millions of people, daily care involves supplies that need privacy, organization, and portability—whether it's medication, supplements, wellness tools, or personal essentials. Yet the solutions available feel clinical, clunky, or nonexistent."
+          description="For millions of people, daily care involves supplies that need privacy, organization, and portability whether it's medication, supplements, wellness tools, or personal essentials. Yet the solutions available feel clinical, clunky, or nonexistent."
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
