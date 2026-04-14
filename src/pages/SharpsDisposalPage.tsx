@@ -364,7 +364,7 @@ const SharpsDisposalPage = () => (
           Your routine deserves better.
         </h2>
         <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto mb-6">
-          Whether it's HRT, insulin, IVF, or any injectable — sharps disposal
+          Whether it's HRT, insulin, IVF, or any injectable sharps disposal
           should feel as intentional as the rest of your space.
         </p>
         <Button asChild variant="hero" size="lg">
