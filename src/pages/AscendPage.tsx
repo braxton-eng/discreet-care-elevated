@@ -173,8 +173,9 @@ const AscendPage = () => {
         <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto mb-6">
           Every Stealth Ascend kit comes with a comprehensive digital guide covering techniques, safety, maintenance, and FAQs. Knowledge is power.
         </p>
-        <Button asChild variant="premium" size="lg">
-          <a href="#starter-kit" onClick={(e) => { e.preventDefault(); document.getElementById('starter-kit')?.scrollIntoView({ behavior: 'smooth' }); }}>Grab Your Stealth Ascend Now</a>
+        <Button variant="premium" size="lg" onClick={handleAddAscend} disabled={isLoading}>
+          {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+          Grab Your Stealth Ascend Now
         </Button>
       </div>
     </section>
