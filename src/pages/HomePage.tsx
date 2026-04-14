@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeader from "@/components/SectionHeader";
+import BestSellers from "@/components/BestSellers";
 import { ArrowRight, Shield, Briefcase, Heart, Star, Package, Truck } from "lucide-react";
 import heroImg from "@/assets/hero-product.png";
-import catMedical from "@/assets/category-medical-storage.jpg";
+
 import catPersonalCare from "@/assets/category-personal-care.jpg";
 import catSharps from "@/assets/category-sharps.jpg";
 import catDuffles from "@/assets/category-duffles.jpg";
@@ -16,12 +17,6 @@ const categories = [
   { title: "Duffles & Backpacks", desc: "Travel-ready bags with built-in private compartments.", img: catDuffles, path: "/shop/duffles-backpacks" },
 ];
 
-const bestSellers = [
-  { name: "The Stealth Case", price: "$65", tag: "Best Seller", img: catMedical },
-  { name: "Sharps Container — Matte Black", price: "$28", tag: "New", img: catSharps },
-  { name: "The Essentials Bundle", price: "$89", tag: "Save 15%", img: catBundles },
-  { name: "The Stealth Duffle", price: "$145", tag: "Popular", img: catDuffles },
-];
 
 const testimonials = [
   { text: "Finally, something that doesn't scream 'medical.' I travel with mine everywhere.", author: "Maya R.", role: "HRT" },
@@ -154,20 +149,7 @@ const HomePage = () => (
     <section className="py-16 md:py-24 bg-background">
       <div className="container-wide section-padding">
         <SectionHeader eyebrow="Best Sellers" title="Customer favorites." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-          {bestSellers.map((p) => (
-            <Link key={p.name} to="/shop/product/stealth-case" className="group">
-              <div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3 relative">
-                <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <span className="absolute top-2.5 left-2.5 bg-accent text-accent-foreground text-[10px] font-sans font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md">
-                  {p.tag}
-                </span>
-              </div>
-              <h4 className="font-sans text-sm font-medium text-foreground">{p.name}</h4>
-              <p className="text-sm text-muted-foreground">{p.price}</p>
-            </Link>
-          ))}
-        </div>
+        <BestSellers />
         <div className="text-center mt-10">
           <Button asChild variant="premium" size="lg">
             <Link to="/shop">View All Products <ArrowRight className="ml-2 h-4 w-4" /></Link>
