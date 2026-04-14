@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Loader2, Filter, ShieldCheck, Truck, Package } from "lucide-react";
 import catMedical from "@/assets/category-medical-storage.jpg";
+import allProductsHero from "@/assets/all-products-hero.jpg";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -230,7 +231,7 @@ const AllProductsPage = () => {
       <section className="relative py-20 md:py-28">
         <div className="absolute inset-0">
           <img
-            src={catMedical}
+            src={allProductsHero}
             alt="Stealth Bros Complete Collection"
             className="w-full h-full object-cover object-center"
             width={1920}
