@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ShieldCheck, BookOpen, ArrowRight } from "lucide-react";
+import { CheckCircle, ShieldCheck, BookOpen, ArrowRight, Loader2 } from "lucide-react";
+import { useCartStore } from "@/stores/cartStore";
+import { toast } from "sonner";
 import ascendHero from "@/assets/ascend-hero.jpg";
 import catBundles from "@/assets/ascend-kit.jpg";
 
