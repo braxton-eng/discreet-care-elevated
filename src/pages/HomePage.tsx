@@ -52,7 +52,7 @@ const HomePage = () => (
               <span className="italic">most.</span>
             </h1>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-md">
-              Built for people managing personal care, wellness, and health routines—with privacy, organization, and confidence.
+              Built for people managing personal care, wellness, and health routines with privacy, organization, and confidence.
             </p>
 
             {/* Stars */}
