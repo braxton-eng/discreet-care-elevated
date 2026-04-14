@@ -64,7 +64,6 @@ const AscendPage = () => (
                 "4 graduated cylinders (multiple sizes)",
                 "Medical-grade tubing",
                 "Comprehensive sizing guide",
-                "Quick-start instruction card",
                 "Discreet carrying case",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
