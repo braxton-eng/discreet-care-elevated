@@ -202,6 +202,7 @@ const AscendPage = () => {
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default AscendPage;
