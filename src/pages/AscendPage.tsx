@@ -143,7 +143,7 @@ const AscendPage = () => (
           Every Stealth Ascend kit comes with a comprehensive digital guide covering techniques, safety, maintenance, and FAQs. Knowledge is power.
         </p>
         <Button asChild variant="premium" size="lg">
-          <a href="https://www.stealthbrosco.com/products/%E4%B8%80stealth-ascend%E2%84%A2-bottom-growth-enhancement-starter-kit" target="_blank" rel="noopener noreferrer">Grab Your Stealth Ascend Now</a>
+          <a href="#starter-kit" onClick={(e) => { e.preventDefault(); document.getElementById('starter-kit')?.scrollIntoView({ behavior: 'smooth' }); }}>Grab Your Stealth Ascend Now</a>
         </Button>
       </div>
     </section>
