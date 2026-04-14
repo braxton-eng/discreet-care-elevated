@@ -1,10 +1,41 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ShieldCheck, BookOpen, ArrowRight } from "lucide-react";
+import { CheckCircle, ShieldCheck, BookOpen, ArrowRight, Loader2 } from "lucide-react";
+import { useCartStore } from "@/stores/cartStore";
+import { toast } from "sonner";
 import ascendHero from "@/assets/ascend-hero.jpg";
 import catBundles from "@/assets/ascend-kit.jpg";
 
-const AscendPage = () => (
+const ASCEND_PRODUCT = {
+  node: {
+    id: "gid://shopify/Product/8953760743663",
+    title: "一Stealth Ascend™ Bottom Growth Enhancement Starter Kit",
+    description: "",
+    handle: "stealth-ascend-bottom-growth-enhancement-starter-kit",
+    priceRange: { minVariantPrice: { amount: "65.00", currencyCode: "USD" } },
+    images: { edges: [] },
+    variants: { edges: [{ node: { id: "gid://shopify/ProductVariant/46437287559407", title: "Default Title", price: { amount: "65.00", currencyCode: "USD" }, availableForSale: true, selectedOptions: [{ name: "Title", value: "Default Title" }] } }] },
+    options: [{ name: "Title", values: ["Default Title"] }],
+  },
+};
+
+const AscendPage = () => {
+  const { addItem, isLoading } = useCartStore();
+
+  const handleAddAscend = async () => {
+    const variant = ASCEND_PRODUCT.node.variants.edges[0].node;
+    await addItem({
+      product: ASCEND_PRODUCT,
+      variantId: variant.id,
+      variantTitle: variant.title,
+      price: variant.price,
+      quantity: 1,
+      selectedOptions: variant.selectedOptions,
+    });
+    toast.success("Stealth Ascend added to cart!");
+  };
+
+  return (
   <div className="pt-28 md:pt-32">
     {/* Hero */}
     <section className="relative py-28 md:py-44 lg:py-52">
@@ -142,8 +173,9 @@ const AscendPage = () => (
         <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto mb-6">
           Every Stealth Ascend kit comes with a comprehensive digital guide covering techniques, safety, maintenance, and FAQs. Knowledge is power.
         </p>
-        <Button asChild variant="premium" size="lg">
-          <a href="#starter-kit" onClick={(e) => { e.preventDefault(); document.getElementById('starter-kit')?.scrollIntoView({ behavior: 'smooth' }); }}>Grab Your Stealth Ascend Now</a>
+        <Button variant="premium" size="lg" onClick={handleAddAscend} disabled={isLoading}>
+          {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+          Grab Your Stealth Ascend Now
         </Button>
       </div>
     </section>
@@ -171,6 +203,7 @@ const AscendPage = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default AscendPage;
