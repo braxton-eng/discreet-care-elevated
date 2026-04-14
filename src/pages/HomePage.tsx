@@ -107,7 +107,7 @@ const HomePage = () => (
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { icon: Shield, title: "Lack of Privacy", desc: "Your personal care routine is your business. Whether it's medication, supplements, or wellness essentials—discretion matters." },
+            { icon: Shield, title: "Lack of Privacy", desc: "Your personal care routine is your business. Whether it's medication, supplements, or wellness essentials discretion matters." },
             { icon: Briefcase, title: "Disorganization", desc: "Scattered supplies lead to missed routines and unnecessary stress. Organization creates confidence." },
             { icon: Heart, title: "Stigma & Judgment", desc: "No one should feel self-conscious about managing their health or personal care. Your routine should fit seamlessly into your life." },
           ].map((item) => (
