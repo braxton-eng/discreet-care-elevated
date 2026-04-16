@@ -93,7 +93,7 @@ const SpeakerPage = () => (
             <Button variant="hero" size="lg">Book Braxton</Button>
           </div>
           <div className="order-1 lg:order-2 aspect-[3/4] rounded-xl overflow-hidden">
-            <img src={founderImg} alt="Braxton Fleming" className="w-full h-full object-cover" />
+            <img src={founderImg} alt="Braxton Fleming" className="w-full h-full object-cover object-center" />
           </div>
         </div>
       </div>
