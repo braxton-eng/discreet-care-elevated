@@ -77,7 +77,7 @@ const AscendPage = () => {
       <div className="container-wide section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="aspect-square rounded-xl overflow-hidden">
-            <img src={catBundles} alt="Stealth Ascend Starter Kit" loading="lazy" className="w-full h-full object-cover" />
+            <img src="https://cdn.shopify.com/s/files/1/0037/9492/7686/files/IMG_6046.heic?v=1746761198" alt="Stealth Ascend™ Bottom Growth Enhancement Starter Kit" loading="lazy" className="w-full h-full object-cover" />
           </div>
           <div>
             <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-3 block">The Starter Kit</span>
