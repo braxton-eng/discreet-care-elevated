@@ -61,7 +61,7 @@ const ResourcesPage = () => {
         <div className="container-wide section-padding pt-4 md:pt-6">
           <SectionHeader
             eyebrow="Resources"
-            title="Ebooks & Guides"
+            title="Ebook Guides"
             description="Knowledge is power. Explore our library of ebooks designed to support and empower your journey."
           />
         </div>
