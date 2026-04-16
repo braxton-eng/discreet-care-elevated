@@ -36,6 +36,7 @@ export const useCartStore = create<CartStore>()(
       checkoutUrl: null,
       isLoading: false,
       isSyncing: false,
+      lastModified: 0,
 
       addItem: async (item) => {
         const { items, cartId, clearCart } = get();
