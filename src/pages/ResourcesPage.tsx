@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BookOpen, ShoppingCart, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeader from "@/components/SectionHeader";
-import { fetchProducts, type ShopifyProduct } from "@/lib/shopify";
+import { storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
