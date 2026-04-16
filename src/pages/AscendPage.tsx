@@ -85,17 +85,15 @@ const AscendPage = () => {
               Everything you need to begin.
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              The Stealth Ascend Starter Kit is thoughtfully curated to provide a complete, safe, and informed starting point for your personal wellness journey. By supporting natural growth and helping ease dysphoria, it empowers you to feel more at home in your body, bringing a quiet confidence that extends well beyond the bedroom and into every part of your day.
+              The Stealth Ascend™ Starter Kit is designed specifically for Trans Men and Non-Binary individuals seeking to explore safe, effective bottom growth pumping. Whether you're just beginning or reclaiming confidence in your body, this kit gives you the tools to enhance sensation, stimulate growth, and build a stronger connection with yourself.
             </p>
 
             <h3 className="font-sans text-[11px] font-semibold uppercase tracking-wider mb-3">What's Included</h3>
             <div className="space-y-2.5 mb-6">
               {[
-                "Premium pump handle with ergonomic grip",
-                "4 graduated cylinders (multiple sizes)",
-                "Medical-grade tubing",
-                "Comprehensive sizing guide",
-                "Discreet carrying case",
+                "1 ergonomic, easy-grip pump handle with Pressure Gauge",
+                "4 interchangeable clear cylinders for customized growth goals",
+                "Secure, medical-grade silicone tubing and connectors",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
                   <CheckCircle className="h-4 w-4 text-accent shrink-0 mt-0.5" />
@@ -104,9 +102,10 @@ const AscendPage = () => {
               ))}
             </div>
 
-            <p className="text-xl font-sans font-semibold text-foreground mb-5">$90.00</p>
-            <Button variant="hero" size="lg" className="w-full sm:w-auto">
-              Add to Cart — $90.00
+            <p className="text-xl font-sans font-semibold text-foreground mb-5">$65.00</p>
+            <Button variant="hero" size="lg" className="w-full sm:w-auto" onClick={handleAddAscend} disabled={isLoading}>
+              {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+              Add to Cart — $65.00
             </Button>
           </div>
         </div>
