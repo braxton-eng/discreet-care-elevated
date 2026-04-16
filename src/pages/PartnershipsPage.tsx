@@ -19,7 +19,9 @@ const PartnershipsPage = () => (
         <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl mx-auto mb-8">
           We partner with healthcare organizations, pharmacies, retailers, and corporate wellness programs to bring dignity, organization, and discretion to patient care.
         </p>
-        <Button variant="hero" size="lg">Partner With Us</Button>
+        <Button variant="hero" size="lg" asChild>
+          <a href="mailto:braxton@stealthbrosco.com">Partner With Us</a>
+        </Button>
       </div>
     </section>
 
