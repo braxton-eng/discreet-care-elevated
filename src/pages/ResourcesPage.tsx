@@ -29,7 +29,7 @@ const ResourcesPage = () => {
     `;
     const load = async () => {
       try {
-        const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 20, query: "product_type:E-Books" });
+        const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 20, query: "title:ebook" });
         const products = data?.data?.products?.edges || [];
         setEbooks(products);
       } catch (e) {
