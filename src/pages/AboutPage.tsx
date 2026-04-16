@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import founderImg from "@/assets/founder-braxton.jpg";
+import founderImg from "@/assets/founder-braxton-new.jpg";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
