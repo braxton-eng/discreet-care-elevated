@@ -63,11 +63,11 @@ const Footer = () => (
         <p className="text-xs text-primary-foreground/40">© 2026 Stealth Bros & Co. All rights reserved.</p>
         <div className="flex gap-6">
           {[
-            { label: "Privacy Policy", href: "https://stealth-bros-co.myshopify.com/policies/privacy-policy" },
-            { label: "Terms of Service", href: "https://stealth-bros-co.myshopify.com/policies/terms-of-service" },
-            { label: "Shipping", href: "https://stealth-bros-co.myshopify.com/policies/shipping-policy" },
+            { label: "Privacy Policy", to: "/privacy-policy" },
+            { label: "Terms of Service", to: "/terms-of-service" },
+            { label: "Shipping", to: "/shipping-policy" },
           ].map((item) => (
-            <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/40 hover:text-accent cursor-pointer transition-colors">{item.label}</a>
+            <Link key={item.label} to={item.to} className="text-xs text-primary-foreground/40 hover:text-accent cursor-pointer transition-colors">{item.label}</Link>
           ))}
         </div>
       </div>

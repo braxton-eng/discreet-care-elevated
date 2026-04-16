@@ -20,6 +20,9 @@ import SpeakerPage from "@/pages/SpeakerPage";
 import PartnershipsPage from "@/pages/PartnershipsPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ContactPage from "@/pages/ContactPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import ShippingPolicyPage from "@/pages/ShippingPolicyPage";
 import NotFound from "@/pages/NotFound";
 import { useCartSync } from "@/hooks/useCartSync";
 
@@ -47,6 +50,9 @@ const AppContent = () => {
           <Route path="/partnerships" element={<PartnershipsPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
