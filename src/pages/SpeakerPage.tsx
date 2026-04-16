@@ -90,7 +90,7 @@ const SpeakerPage = () => (
                 <span key={cred} className="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-sans font-semibold">{cred}</span>
               ))}
             </div>
-            <Button variant="hero" size="lg">Book Braxton</Button>
+            <Button variant="hero" size="lg" asChild><a href="mailto:Braxton@stealthbrosco.com">Book Braxton</a></Button>
           </div>
           <div className="order-1 lg:order-2 aspect-[3/4] rounded-xl overflow-hidden">
             <img src={founderImg} alt="Braxton Fleming" className="w-full h-full object-cover object-center" />
@@ -159,7 +159,7 @@ const SpeakerPage = () => (
         <p className="text-primary-foreground/60 mb-7 max-w-md mx-auto text-sm">
           Keynotes, panels, fireside chats, and workshops. Let's create a conversation that matters.
         </p>
-        <Button variant="hero" size="lg">Book Braxton</Button>
+        <Button variant="hero" size="lg" asChild><a href="mailto:Braxton@stealthbrosco.com">Book Braxton</a></Button>
       </div>
     </section>
   </div>
