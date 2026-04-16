@@ -27,7 +27,7 @@ const engagements = [
     icon: Stethoscope,
     category: "Healthcare & Industry",
     items: [
-      "Boston Scientific – Panel + Bulk Order Event",
+      "Boston Scientific – Collaborator",
       "Trans Tech – Panelist",
       "Folx Health – Live Panel",
     ],
