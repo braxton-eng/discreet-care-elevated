@@ -152,7 +152,7 @@ const HomePage = () => (
         <BestSellers />
         <div className="text-center mt-10">
           <Button asChild variant="premium" size="lg">
-            <Link to="/shop">View All Products <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link to="/shop/personal-care-storage">View All Products <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
       </div>
