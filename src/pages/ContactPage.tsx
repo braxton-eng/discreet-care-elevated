@@ -44,7 +44,6 @@ const ContactPage = () => {
             <div className="space-y-5">
               {[
                 { icon: Mail, title: "Email", info: "stealthbrosco@gmail.com" },
-                { icon: Phone, title: "Phone", info: "(555) 123-4567" },
                 { icon: MapPin, title: "Location", info: "United States" },
               ].map((c) => (
                 <div key={c.title} className="flex gap-3">
