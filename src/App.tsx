@@ -50,6 +50,9 @@ const AppContent = () => {
           <Route path="/partnerships" element={<PartnershipsPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
