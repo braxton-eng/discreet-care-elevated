@@ -19,6 +19,33 @@ const ASCEND_PRODUCT = {
   },
 };
 
+const BUNDLE_PRODUCTS = [
+  {
+    node: {
+      id: "gid://shopify/Product/9047193223407",
+      title: "Stealth Ascend™ + Pride Dopp Bundle",
+      description: "The complete Ascend kit paired with the Pride Original Dopp.",
+      handle: "stealth-ascend-pride-bundle",
+      priceRange: { minVariantPrice: { amount: "90.00", currencyCode: "USD" } },
+      images: { edges: [{ node: { url: "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/2_a7a02833-1ca1-4baf-9656-1d138763b153.png?v=1756435873", altText: "Ascend Pride Bundle" } }] },
+      variants: { edges: [{ node: { id: "gid://shopify/ProductVariant/46798357070063", title: "Default Title", price: { amount: "90.00", currencyCode: "USD" }, availableForSale: true, selectedOptions: [{ name: "Title", value: "Default Title" }] } }] },
+      options: [{ name: "Title", values: ["Default Title"] }],
+    },
+  },
+  {
+    node: {
+      id: "gid://shopify/Product/9047193845999",
+      title: "Stealth Ascend™ + Trans Dopp Bundle",
+      description: "The complete Ascend kit paired with the Trans Original Dopp.",
+      handle: "stealth-ascend-trans-bundle",
+      priceRange: { minVariantPrice: { amount: "90.00", currencyCode: "USD" } },
+      images: { edges: [{ node: { url: "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/3_3697b559-a010-4f57-b2e3-f5a7f6dac869.png?v=1756436034", altText: "Ascend Trans Bundle" } }] },
+      variants: { edges: [{ node: { id: "gid://shopify/ProductVariant/46798362083567", title: "Default Title", price: { amount: "90.00", currencyCode: "USD" }, availableForSale: true, selectedOptions: [{ name: "Title", value: "Default Title" }] } }] },
+      options: [{ name: "Title", values: ["Default Title"] }],
+    },
+  },
+];
+
 const AscendPage = () => {
   const { addItem, isLoading } = useCartStore();
 
