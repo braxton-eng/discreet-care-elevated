@@ -108,9 +108,10 @@ const AscendPage = () => {
           </div>
           <div>
             <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-accent mb-3 block">The Starter Kit</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Everything you need to begin.
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-1">
+              {ASCEND_PRODUCT.node.title}
             </h2>
+            <p className="text-xs text-muted-foreground mb-4">Everything you need to begin.</p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               The Stealth Ascend™ Starter Kit is designed specifically for Trans Men and Non-Binary individuals seeking to explore safe, effective bottom growth pumping. Whether you're just beginning or reclaiming confidence in your body, this kit gives you the tools to enhance sensation, stimulate growth, and build a stronger connection with yourself.
             </p>
@@ -129,11 +130,20 @@ const AscendPage = () => {
               ))}
             </div>
 
-            <p className="text-xl font-sans font-semibold text-foreground mb-5">$65.00</p>
-            <Button variant="hero" size="lg" className="w-full sm:w-auto" onClick={handleAddAscend} disabled={isLoading}>
-              {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
-              Add to Cart — $65.00
-            </Button>
+            <p className="text-xl font-sans font-semibold text-foreground mb-5">${parseFloat(ASCEND_PRODUCT.node.variants.edges[0].node.price.amount).toFixed(2)}</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button variant="hero" size="lg" className="w-full sm:w-auto" onClick={handleAddAscend} disabled={isLoading}>
+                {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+                Add to Cart
+              </Button>
+              <Button variant="outline" size="lg" className="w-full sm:w-auto" onClick={async () => {
+                await handleAddAscend();
+                const url = useCartStore.getState().getCheckoutUrl();
+                if (url) window.open(url, '_blank');
+              }} disabled={isLoading}>
+                Buy Now
+              </Button>
+            </div>
           </div>
         </div>
       </div>
