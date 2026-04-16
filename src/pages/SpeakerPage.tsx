@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import founderImg from "@/assets/founder-braxton-v2.jpg";
+import founderImg from "@/assets/braxton-founder.jpg";
 import { Mic, Award, Users, Heart, Building2, Stethoscope, GraduationCap, Flag, Tv, Trophy } from "lucide-react";
 
 const topics = [
