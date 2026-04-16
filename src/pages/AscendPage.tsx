@@ -19,6 +19,33 @@ const ASCEND_PRODUCT = {
   },
 };
 
+const BUNDLE_PRODUCTS = [
+  {
+    node: {
+      id: "gid://shopify/Product/9047193223407",
+      title: "Stealth Ascend™ + Pride Dopp Bundle",
+      description: "The complete Ascend kit paired with the Pride Original Dopp.",
+      handle: "stealth-ascend-pride-bundle",
+      priceRange: { minVariantPrice: { amount: "90.00", currencyCode: "USD" } },
+      images: { edges: [{ node: { url: "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/2_a7a02833-1ca1-4baf-9656-1d138763b153.png?v=1756435873", altText: "Ascend Pride Bundle" } }] },
+      variants: { edges: [{ node: { id: "gid://shopify/ProductVariant/46798357070063", title: "Default Title", price: { amount: "90.00", currencyCode: "USD" }, availableForSale: true, selectedOptions: [{ name: "Title", value: "Default Title" }] } }] },
+      options: [{ name: "Title", values: ["Default Title"] }],
+    },
+  },
+  {
+    node: {
+      id: "gid://shopify/Product/9047193845999",
+      title: "Stealth Ascend™ + Trans Dopp Bundle",
+      description: "The complete Ascend kit paired with the Trans Original Dopp.",
+      handle: "stealth-ascend-trans-bundle",
+      priceRange: { minVariantPrice: { amount: "90.00", currencyCode: "USD" } },
+      images: { edges: [{ node: { url: "https://cdn.shopify.com/s/files/1/0037/9492/7686/files/3_3697b559-a010-4f57-b2e3-f5a7f6dac869.png?v=1756436034", altText: "Ascend Trans Bundle" } }] },
+      variants: { edges: [{ node: { id: "gid://shopify/ProductVariant/46798362083567", title: "Default Title", price: { amount: "90.00", currencyCode: "USD" }, availableForSale: true, selectedOptions: [{ name: "Title", value: "Default Title" }] } }] },
+      options: [{ name: "Title", values: ["Default Title"] }],
+    },
+  },
+];
+
 const AscendPage = () => {
   const { addItem, isLoading } = useCartStore();
 
@@ -179,25 +206,50 @@ const AscendPage = () => {
       </div>
     </section>
 
-    {/* Related Bundles */}
+    {/* Ascend Bundles */}
     <section className="py-14 md:py-20 bg-secondary">
       <div className="container-wide section-padding text-center">
         <h2 className="font-serif text-xl md:text-2xl font-semibold mb-8">Pair With Your Routine</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto">
-          {[
-            { name: "Ascend + Pride Dopp Kit Bundle", price: "$90", save: "Save 10%", desc: "The complete care and wellness bundle." },
-            { name: "Ascend + Trans Dopp Kit Bundle", price: "$90", save: "Save 10%", desc: "For those managing care routines alongside wellness." },
-          ].map((b) => (
-            <div key={b.name} className="p-5 rounded-xl bg-card border border-border text-left">
-              <span className="text-[11px] font-sans font-semibold text-accent">{b.save}</span>
-              <h4 className="font-serif text-sm font-semibold mt-0.5 mb-1.5">{b.name}</h4>
-              <p className="text-xs text-muted-foreground mb-4">{b.desc}</p>
-              <div className="flex justify-between items-center">
-                <span className="font-sans font-semibold text-lg">{b.price}</span>
-                <Button asChild variant="premium" size="sm"><a href="https://www.stealthbrosco.com/products/bundle-grey-%F0%9F%8F%B3%EF%B8%8F-%EF%B8%8F-edition" target="_blank" rel="noopener noreferrer">Add to Cart</a></Button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          {BUNDLE_PRODUCTS.map((bundle) => {
+            const variant = bundle.node.variants.edges[0].node;
+            const image = bundle.node.images.edges[0]?.node;
+            return (
+              <div key={bundle.node.id} className="rounded-xl bg-card border border-border overflow-hidden text-left">
+                {image && (
+                  <div className="aspect-square overflow-hidden">
+                    <img src={image.url} alt={image.altText || bundle.node.title} className="w-full h-full object-cover" />
+                  </div>
+                )}
+                <div className="p-5">
+                  <h4 className="font-serif text-sm font-semibold mb-1.5">{bundle.node.title}</h4>
+                  <p className="text-xs text-muted-foreground mb-4">{bundle.node.description}</p>
+                  <div className="flex justify-between items-center">
+                    <span className="font-sans font-semibold text-lg">${parseFloat(variant.price.amount).toFixed(2)}</span>
+                    <Button
+                      variant="premium"
+                      size="sm"
+                      disabled={isLoading}
+                      onClick={async () => {
+                        await addItem({
+                          product: bundle,
+                          variantId: variant.id,
+                          variantTitle: variant.title,
+                          price: variant.price,
+                          quantity: 1,
+                          selectedOptions: variant.selectedOptions,
+                        });
+                        toast.success(`${bundle.node.title} added to cart!`);
+                      }}
+                    >
+                      {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-1" /> : null}
+                      Add to Cart
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
