@@ -20,6 +20,9 @@ import SpeakerPage from "@/pages/SpeakerPage";
 import PartnershipsPage from "@/pages/PartnershipsPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ContactPage from "@/pages/ContactPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import ShippingPolicyPage from "@/pages/ShippingPolicyPage";
 import NotFound from "@/pages/NotFound";
 import { useCartSync } from "@/hooks/useCartSync";
 
