@@ -127,8 +127,11 @@ export const useCartStore = create<CartStore>()(
       getCheckoutUrl: () => get().checkoutUrl,
 
       syncCart: async () => {
-        const { cartId, isSyncing, clearCart } = get();
+        const { cartId, isSyncing, clearCart, lastModified } = get();
         if (!cartId || isSyncing) return;
+        // Skip sync if cart was modified in the last 10 seconds to avoid
+        // Shopify eventual consistency clearing a just-created cart
+        if (Date.now() - lastModified < 10000) return;
 
         set({ isSyncing: true });
         try {
