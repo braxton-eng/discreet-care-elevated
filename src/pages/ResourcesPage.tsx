@@ -13,9 +13,24 @@ const ResourcesPage = () => {
   const { addItem, isLoading } = useCartStore();
 
   useEffect(() => {
+    const PRODUCTS_QUERY = `
+      query GetProducts($first: Int!, $query: String) {
+        products(first: $first, query: $query) {
+          edges {
+            node {
+              id title description handle
+              priceRange { minVariantPrice { amount currencyCode } }
+              images(first: 1) { edges { node { url altText } } }
+              variants(first: 1) { edges { node { id title price { amount currencyCode } availableForSale selectedOptions { name value } } } }
+            }
+          }
+        }
+      }
+    `;
     const load = async () => {
       try {
-        const products = await fetchProducts(20, "product_type:E-Books");
+        const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 20, query: "product_type:E-Books" });
+        const products = data?.data?.products?.edges || [];
         setEbooks(products);
       } catch (e) {
         console.error("Failed to load ebooks:", e);
