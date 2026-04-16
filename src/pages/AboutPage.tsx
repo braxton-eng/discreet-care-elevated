@@ -22,7 +22,7 @@ const AboutPage = () => (
                 There were no discreet, well-designed storage solutions for people managing daily personal care routines. Just plastic bags, shoeboxes, and a lot of anxiety about being seen. Braxton knew there had to be a better way.
               </p>
               <p>
-                What started as a personal solution quickly became a mission. After appearing on <strong className="text-foreground">Shark Tank</strong> and securing a partnership with <strong className="text-foreground">CVS</strong>, Stealth Bros & Co. has grown into a movement serving HRT, IVF, diabetes, GLP-1, supplement, and wellness communities with products that bring privacy, organization, and dignity to every personal care routine.
+                What started as a personal solution quickly became a mission. After appearing on <strong className="text-foreground">Shark Tank</strong> and securing a partnership with CVS, Stealth Bros & Co. has grown into a movement serving HRT, IVF, diabetes, GLP-1, supplement, and wellness communities with products that bring privacy, organization, and dignity to every personal care routine.
               </p>
               <p className="font-serif text-foreground text-lg italic">
                 "Your routine is your business, we just make it easier to manage."
