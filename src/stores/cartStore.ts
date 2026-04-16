@@ -19,6 +19,7 @@ interface CartStore {
   checkoutUrl: string | null;
   isLoading: boolean;
   isSyncing: boolean;
+  lastModified: number;
   addItem: (item: Omit<CartItem, 'lineId'>) => Promise<void>;
   updateQuantity: (variantId: string, quantity: number) => Promise<void>;
   removeItem: (variantId: string) => Promise<void>;
@@ -35,6 +36,7 @@ export const useCartStore = create<CartStore>()(
       checkoutUrl: null,
       isLoading: false,
       isSyncing: false,
+      lastModified: 0,
 
       addItem: async (item) => {
         const { items, cartId, clearCart } = get();
@@ -49,6 +51,7 @@ export const useCartStore = create<CartStore>()(
                 cartId: result.cartId,
                 checkoutUrl: result.checkoutUrl,
                 items: [{ ...item, lineId: result.lineId }],
+                lastModified: Date.now(),
               });
             }
           } else if (existingItem) {
@@ -56,14 +59,14 @@ export const useCartStore = create<CartStore>()(
             if (!existingItem.lineId) return;
             const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
             if (result.success) {
-              set({ items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i) });
+              set({ items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i), lastModified: Date.now() });
             } else if (result.cartNotFound) {
               clearCart();
             }
           } else {
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });
             if (result.success) {
-              set({ items: [...get().items, { ...item, lineId: result.lineId ?? null }] });
+              set({ items: [...get().items, { ...item, lineId: result.lineId ?? null }], lastModified: Date.now() });
             } else if (result.cartNotFound) {
               clearCart();
             }
@@ -124,8 +127,11 @@ export const useCartStore = create<CartStore>()(
       getCheckoutUrl: () => get().checkoutUrl,
 
       syncCart: async () => {
-        const { cartId, isSyncing, clearCart } = get();
+        const { cartId, isSyncing, clearCart, lastModified } = get();
         if (!cartId || isSyncing) return;
+        // Skip sync if cart was modified in the last 10 seconds to avoid
+        // Shopify eventual consistency clearing a just-created cart
+        if (Date.now() - lastModified < 10000) return;
 
         set({ isSyncing: true });
         try {
