@@ -11,8 +11,6 @@ const categories = [
   { title: "Sharps Disposal", desc: "Safe, sleek sharps containers designed to belong in your space.", img: catSharps, path: "/shop/sharps-disposal", count: "6 products" },
   { title: "Bundles", desc: "Complete care kits curated for value and convenience.", img: catBundles, path: "/shop/bundles", count: "8 products" },
   { title: "Duffles & Backpacks", desc: "Travel-ready bags with integrated private storage compartments.", img: catDuffles, path: "/shop/duffles-backpacks", count: "5 products" },
-  { title: "Education", desc: "Guides, ebooks, and resources to support your personal care journey.", img: catMedical, path: "/shop/education", count: "4 resources" },
-  { title: "Gift Cards", desc: "Give the gift of confidence and organization.", img: catBundles, path: "/shop/gift-cards", count: "From $25" },
 ];
 
 const ShopPage = () => (
