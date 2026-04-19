@@ -30,11 +30,31 @@ const PartnershipsPage = () => {
       toast.error("Please fill in your name, email, and message.");
       return;
     }
-    const subject = encodeURIComponent(`Partnership Inquiry from ${form.firstName} ${form.lastName}`);
-    const body = encodeURIComponent(
-      `Name: ${form.firstName} ${form.lastName}\nCompany: ${form.company}\nEmail: ${form.email}\nPartnership Type: ${form.partnershipType}\n\nMessage:\n${form.message}`
+    const fullName = `${form.firstName} ${form.lastName}`.trim();
+    const typeLabel = form.partnershipType || "Not specified";
+    const subject = encodeURIComponent(
+      `Partnership Inquiry — ${typeLabel} — ${fullName}${form.company ? ` (${form.company})` : ""}`
     );
+    const bodyLines = [
+      `Hi Braxton,`,
+      ``,
+      `You have a new partnership inquiry from the Stealth Bros & Co. website.`,
+      ``,
+      `— Contact —`,
+      `Name: ${fullName}`,
+      `Email: ${form.email}`,
+      `Company: ${form.company || "—"}`,
+      `Partnership Type: ${typeLabel}`,
+      ``,
+      `— Message —`,
+      form.message,
+      ``,
+      `—`,
+      `Sent from stealthbrosco.com /partnerships`,
+    ];
+    const body = encodeURIComponent(bodyLines.join("\n"));
     window.location.href = `mailto:braxton@stealthbrosco.com?subject=${subject}&body=${body}`;
+    toast.success("Opening your email app to send the inquiry.");
   };
 
   return (
