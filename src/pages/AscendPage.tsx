@@ -79,8 +79,13 @@ const AscendPage = () => {
           <p className="text-base text-primary-foreground/70 leading-relaxed mb-8">
             Designed for those seeking a safe, empowering, and informed approach to personal wellness and intimacy.
           </p>
-          <Button asChild variant="hero" size="lg">
-            <a href="https://www.stealthbrosco.com/products/%E4%B8%80stealth-ascend%E2%84%A2-bottom-growth-enhancement-starter-kit" target="_blank" rel="noopener noreferrer">Explore the Kit <ArrowRight className="ml-2 h-4 w-4" /></a>
+          <Button variant="hero" size="lg" onClick={async () => {
+            await handleAddAscend();
+            const url = useCartStore.getState().getCheckoutUrl();
+            if (url) window.open(url, '_blank');
+          }} disabled={isLoading}>
+            {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+            Buy Now <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
