@@ -211,7 +211,7 @@ const BundlesPage = () => {
             </h1>
             <p className="text-sm text-primary-foreground/75 leading-relaxed mb-6">
               Why buy one when you can have it all? Our bundles pair your favorite
-              Stealth Bros essentials together — complete systems at a better value.
+              Stealth Bros essentials together complete systems at a better value.
             </p>
             <div className="flex flex-wrap gap-4 text-[11px] font-sans font-medium uppercase tracking-wider text-primary-foreground/60">
               <span className="flex items-center gap-1.5">
