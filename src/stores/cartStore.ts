@@ -8,6 +8,7 @@ import {
   updateShopifyCartLine,
   removeLineFromShopifyCart,
   storefrontApiRequest,
+  formatCheckoutUrl,
   CART_QUERY,
 } from '@/lib/shopify';
 
@@ -59,14 +60,22 @@ export const useCartStore = create<CartStore>()(
             if (!existingItem.lineId) return;
             const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
             if (result.success) {
-              set({ items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i), lastModified: Date.now() });
+              set({
+                items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i),
+                checkoutUrl: result.checkoutUrl ?? get().checkoutUrl,
+                lastModified: Date.now(),
+              });
             } else if (result.cartNotFound) {
               clearCart();
             }
           } else {
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });
             if (result.success) {
-              set({ items: [...get().items, { ...item, lineId: result.lineId ?? null }], lastModified: Date.now() });
+              set({
+                items: [...get().items, { ...item, lineId: result.lineId ?? null }],
+                checkoutUrl: result.checkoutUrl ?? get().checkoutUrl,
+                lastModified: Date.now(),
+              });
             } else if (result.cartNotFound) {
               clearCart();
             }
@@ -91,7 +100,11 @@ export const useCartStore = create<CartStore>()(
         try {
           const result = await updateShopifyCartLine(cartId, item.lineId, quantity);
           if (result.success) {
-            set({ items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i) });
+            set({
+              items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i),
+              checkoutUrl: result.checkoutUrl ?? get().checkoutUrl,
+              lastModified: Date.now(),
+            });
           } else if (result.cartNotFound) {
             clearCart();
           }
@@ -112,7 +125,13 @@ export const useCartStore = create<CartStore>()(
           const result = await removeLineFromShopifyCart(cartId, item.lineId);
           if (result.success) {
             const newItems = get().items.filter(i => i.variantId !== variantId);
-            newItems.length === 0 ? clearCart() : set({ items: newItems });
+            newItems.length === 0
+              ? clearCart()
+              : set({
+                  items: newItems,
+                  checkoutUrl: result.checkoutUrl ?? get().checkoutUrl,
+                  lastModified: Date.now(),
+                });
           } else if (result.cartNotFound) {
             clearCart();
           }
@@ -129,8 +148,6 @@ export const useCartStore = create<CartStore>()(
       syncCart: async () => {
         const { cartId, isSyncing, clearCart, lastModified } = get();
         if (!cartId || isSyncing) return;
-        // Skip sync if cart was modified in the last 10 seconds to avoid
-        // Shopify eventual consistency clearing a just-created cart
         if (Date.now() - lastModified < 10000) return;
 
         set({ isSyncing: true });
@@ -138,7 +155,14 @@ export const useCartStore = create<CartStore>()(
           const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
           if (!data) return;
           const cart = data?.data?.cart;
-          if (!cart || cart.totalQuantity === 0) clearCart();
+          if (!cart || cart.totalQuantity === 0) {
+            clearCart();
+            return;
+          }
+
+          if (cart.checkoutUrl) {
+            set({ checkoutUrl: formatCheckoutUrl(cart.checkoutUrl) });
+          }
         } catch (error) {
           console.error('Failed to sync cart:', error);
         } finally {
