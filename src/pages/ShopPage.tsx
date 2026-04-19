@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import catMedical from "@/assets/category-medical-storage.jpg";
+import catPersonalCare from "@/assets/category-personal-care.jpg";
 import catSharps from "@/assets/category-sharps.jpg";
 import catDuffles from "@/assets/category-duffles.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
 
 const categories = [
-  { title: "Personal Care Storage", desc: "Our signature Dopp kits—discreet, organized, and designed for your daily routine.", img: catMedical, path: "/shop/medical-storage", count: "12 products" },
+  { title: "Personal Care Storage", desc: "Our signature Dopp kits—discreet, organized, and designed for your daily routine.", img: catPersonalCare, path: "/shop/all", count: "12 products" },
   { title: "Sharps Disposal", desc: "Safe, sleek sharps containers designed to belong in your space.", img: catSharps, path: "/shop/sharps-disposal", count: "6 products" },
   { title: "Bundles", desc: "Complete care kits curated for value and convenience.", img: catBundles, path: "/shop/bundles", count: "8 products" },
   { title: "Duffles & Backpacks", desc: "Travel-ready bags with integrated private storage compartments.", img: catDuffles, path: "/shop/duffles-backpacks", count: "5 products" },
