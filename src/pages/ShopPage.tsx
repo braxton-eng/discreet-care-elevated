@@ -5,12 +5,14 @@ import catPersonalCare from "@/assets/category-personal-care.jpg";
 import catSharps from "@/assets/category-sharps.jpg";
 import catDuffles from "@/assets/category-duffles.jpg";
 import catBundles from "@/assets/category-bundles.jpg";
+import catAscend from "@/assets/ascend-hero.jpg";
 
 const categories = [
   { title: "Personal Care Storage", desc: "Our signature Dopp kits—discreet, organized, and designed for your daily routine.", img: catPersonalCare, path: "/shop/all", count: "12 products" },
   { title: "Sharps Disposal", desc: "Safe, sleek sharps containers designed to belong in your space.", img: catSharps, path: "/shop/sharps-disposal", count: "6 products" },
   { title: "Bundles", desc: "Complete care kits curated for value and convenience.", img: catBundles, path: "/shop/bundles", count: "8 products" },
   { title: "Duffles & Backpacks", desc: "Travel-ready bags with integrated private storage compartments.", img: catDuffles, path: "/shop/duffles-backpacks", count: "5 products" },
+  { title: "Stealth Ascend", desc: "A safe, empowering starter kit for confidence, connection, and self-discovery.", img: catAscend, path: "/ascend", count: "Starter Kit" },
 ];
 
 const ShopPage = () => (
