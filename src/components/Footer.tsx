@@ -1,4 +1,60 @@
 import { Link } from "react-router-dom";
+import { useState, FormEvent } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const NewsletterForm = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const trimmed = email.trim();
+    if (!EMAIL_RE.test(trimmed)) {
+      toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
+      return;
+    }
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("klaviyo-subscribe", {
+        body: { email: trimmed, source: "footer" },
+      });
+      if (error || (data as any)?.error) {
+        const msg = (data as any)?.error || error?.message || "Something went wrong.";
+        toast({ title: "Subscription failed", description: msg, variant: "destructive" });
+      } else {
+        toast({ title: "You're in!", description: "Check your inbox to confirm your subscription." });
+        setEmail("");
+      }
+    } catch (err) {
+      toast({ title: "Subscription failed", description: "Please try again later.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={onSubmit} className="flex gap-2">
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Your email"
+        className="flex-1 bg-primary-foreground/10 border border-primary-foreground/15 rounded-lg px-3 py-2 text-sm text-primary-foreground placeholder:text-primary-foreground/30 focus:outline-none focus:border-accent transition-colors"
+      />
+      <button
+        type="submit"
+        disabled={loading}
+        className="bg-accent text-accent-foreground px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider hover:bg-accent/90 transition-colors disabled:opacity-60"
+      >
+        {loading ? "..." : "Join"}
+      </button>
+    </form>
+  );
+};
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground">
@@ -47,16 +103,7 @@ const Footer = () => (
         <div>
           <h4 className="font-sans text-[11px] font-semibold uppercase tracking-widest mb-4 text-primary-foreground/80">Stay Connected</h4>
           <p className="text-sm text-primary-foreground/50 mb-3">Join our community for care tips and new drops.</p>
-          <div className="flex gap-2">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="flex-1 bg-primary-foreground/10 border border-primary-foreground/15 rounded-lg px-3 py-2 text-sm text-primary-foreground placeholder:text-primary-foreground/30 focus:outline-none focus:border-accent transition-colors"
-            />
-            <button className="bg-accent text-accent-foreground px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider hover:bg-accent/90 transition-colors">
-              Join
-            </button>
-          </div>
+          <NewsletterForm />
         </div>
       </div>
       <div className="mt-12 pt-6 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-3">
