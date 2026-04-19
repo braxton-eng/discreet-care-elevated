@@ -5,7 +5,7 @@ import { ArrowRight, ShieldCheck, Star, Truck, Loader2, Heart } from "lucide-rea
 import { toast } from "sonner";
 import { useCartStore } from "@/stores/cartStore";
 import type { ShopifyProduct } from "@/lib/shopify";
-import catMedical from "@/assets/category-medical-storage.jpg";
+import catMedical from "@/assets/category-personal-care.jpg";
 
 const products = [
   {
